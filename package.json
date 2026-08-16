@@ -1,0 +1,44 @@
+{
+  "name": "mi-launcher",
+  "productName": "Mi Launcher",
+  "version": "1.0.0",
+  "description": "Launcher de Minecraft con instalación automática de mods y actualización remota",
+  "main": "src/main.js",
+  "author": "achirinosparedes",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.milauncher.app",
+    "productName": "Mi Launcher",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "src/assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  },
+  "dependencies": {
+    "extract-zip": "^2.0.1",
+    "minecraft-launcher-core": "^3.18.2",
+    "msmc": "^4.1.0",
+    "prismarine-nbt": "^2.7.0",
+    "tomate-loaders": "^2.0.2"
+  },
+  "devDependencies": {
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3"
+  }
+}
