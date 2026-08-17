@@ -52,6 +52,7 @@ async function init() {
   }
 
   const m = res.manifest;
+  const game = m.game || {};
   $('server-name').textContent = (m.server && m.server.name) || 'Servidor de Minecraft';
   $('motd').textContent = (m.launcher && m.launcher.message) || '';
 
@@ -59,10 +60,22 @@ async function init() {
     $(id).textContent = text;
     $(id).classList.remove('hidden');
   };
-  chip('chip-version', `Minecraft ${m.game.mcVersion}`);
-  chip('chip-loader', m.game.loader ? m.game.loader.charAt(0).toUpperCase() + m.game.loader.slice(1) : 'Vanilla');
-  chip('chip-mods', `${(m.mods || []).length} mods`);
+  if (m.ftbPack && m.ftbPack.name) chip('chip-pack', m.ftbPack.name);
+  if (game.mcVersion) chip('chip-version', `Minecraft ${game.mcVersion}`);
+  if (game.loader) chip('chip-loader', game.loader.charAt(0).toUpperCase() + game.loader.slice(1));
+  else if (m.ftbPack) chip('chip-loader', 'Modpack FTB');
+  if ((m.mods || []).length) chip('chip-mods', `+${m.mods.length} mods extra`);
   if (m.server && m.server.ip) chip('chip-ip', m.server.ip);
+
+  // Servidor solo premium: se oculta el modo offline para evitar confusión
+  if (m.launcher && m.launcher.allowOffline === false) {
+    btnOffline.classList.add('hidden');
+    usernameInput.closest('.row').classList.add('hidden');
+    btnMs.classList.remove('secondary');
+    btnMs.classList.add('primary');
+    btnMs.textContent = '▶ Jugar (iniciar sesión con Microsoft)';
+    $('footer-note').textContent = 'Este servidor requiere cuenta premium de Minecraft.';
+  }
 
   if (res.access && !res.access.ok) {
     blocked = true;

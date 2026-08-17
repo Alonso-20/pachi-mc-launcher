@@ -1,6 +1,6 @@
 {
-  "name": "mi-launcher",
-  "productName": "Mi Launcher",
+  "name": "pachi-mc-launcher",
+  "productName": "Pachi MC Launcher",
   "version": "1.0.0",
   "description": "Launcher de Minecraft con instalación automática de mods y actualización remota",
   "main": "src/main.js",
@@ -11,8 +11,8 @@
     "dist": "electron-builder --win"
   },
   "build": {
-    "appId": "com.milauncher.app",
-    "productName": "Mi Launcher",
+    "appId": "com.pachimc.launcher",
+    "productName": "Pachi MC Launcher",
     "directories": {
       "output": "dist"
     },

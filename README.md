@@ -1,59 +1,66 @@
-# Mi Launcher — Launcher de Minecraft con mods automáticos
+# Pachi MC Launcher
 
-Launcher de escritorio (Windows) para tu servidor de Minecraft:
+Launcher de Minecraft para Windows que instala el modpack completo del servidor
+automáticamente y se controla en remoto desde GitHub.
 
-- **Instala los mods automáticamente**: los jugadores solo pulsan "Jugar". El launcher descarga Minecraft, Java, el mod loader (Forge/Fabric/NeoForge/Quilt) y todos los mods.
-- **Actualización remota**: tú editas un `manifest.json` en GitHub y todos los jugadores reciben los cambios (mods nuevos, mods eliminados, cambio de versión, IP del server) sin reinstalar nada.
-- **Control de acceso**: puedes bloquear usuarios concretos, usar lista blanca, apagar el launcher para mantenimiento o dejar obsoletas las versiones viejas del launcher forzando actualización.
-- **Conexión automática** al server al iniciar el juego.
-- **Login con Microsoft (premium) o modo offline (no premium)**.
+Configurado para **FTB Skies 2: Aero 1.6.1** (Minecraft 1.21.1 · NeoForge 21.1.248).
+
+## Qué hace
+
+- **Instala el modpack entero solo**: el jugador escribe su nombre y pulsa Jugar.
+  El launcher descarga Java, NeoForge en la versión exacta del pack, los 473 mods,
+  las configs, KubeJS y los datapacks (11.288 archivos, ~1 GB) desde los servidores
+  de FTB.
+- **Actualización remota**: cambias un número en `remote/manifest.json` y todos
+  los jugadores pasan a la versión nueva del modpack en su siguiente arranque.
+  Los mods eliminados se les borran; los nuevos se descargan.
+- **Control de acceso**: bloquear jugadores concretos, lista blanca, apagar el
+  launcher por mantenimiento, o dejar obsoletas las versiones viejas del launcher.
+- **Conexión automática** al servidor al abrir el juego.
+- **Login premium (Microsoft) o no premium (offline)**, configurable.
+- **No toca el `.minecraft` del jugador**: todo vive en `%APPDATA%\Pachi MC Launcher\minecraft`.
 
 ## Estructura
 
 ```
-src/config.js        ← ÚNICO archivo que debes editar: URL de tu manifest en GitHub
-src/main.js          ← proceso principal (flujo de lanzamiento)
-src/launcher/        ← módulos: manifest, mods, java, loader, servers.dat
-src/renderer/        ← interfaz
-remote/manifest.json ← EJEMPLO del manifest que subes a GitHub
-remote/README-ADMIN.md ← guía completa del administrador
+src/config.js           URL del manifest en GitHub (ya configurada)
+src/main.js             flujo de lanzamiento
+src/launcher/ftb.js     lista de archivos del modpack (API de FTB)
+src/launcher/sync.js    descarga/actualiza/borra archivos con verificación SHA-1
+src/launcher/java.js    descarga el Java correcto (Adoptium)
+src/launcher/loaderconfig.js  instala NeoForge/Forge/Fabric en la versión exacta
+src/launcher/manifest.js      manifest remoto y reglas de acceso
+src/launcher/servers.js       añade el server a la lista de multijugador
+src/renderer/           interfaz
+remote/manifest.json    ← el panel de control que editas en GitHub
+remote/README-ADMIN.md  ← guía del administrador (léela)
+tools/ftb-versions.js   lista las versiones del modpack
 ```
 
-## Puesta en marcha
+## Uso
 
-1. **Configura el manifest remoto** — sigue [remote/README-ADMIN.md](remote/README-ADMIN.md):
-   crea un repo público en GitHub, sube `remote/manifest.json` ajustado a tu server
-   y copia su URL raw en [src/config.js](src/config.js).
+```bash
+npm install
+npm start          # desarrollo
+npm run dist       # genera dist/Pachi MC Launcher Setup 1.0.0.exe
+```
 
-2. **Prueba en desarrollo:**
-   ```bash
-   npm install
-   npm start
-   ```
+Reparte el `.exe` de `dist/` a tus jugadores. A partir de ahí, todo lo demás se
+controla desde [remote/manifest.json](remote/manifest.json) — ver
+[guía del administrador](remote/README-ADMIN.md).
 
-3. **Genera el instalador para repartir:**
-   ```bash
-   npm run dist
-   ```
-   El instalador queda en `dist/Mi Launcher Setup 1.0.0.exe`. Repártelo a tus
-   jugadores (Discord, Drive, o como *release* en GitHub).
+## Cómo funciona cada arranque
 
-## Cómo funciona la actualización remota
+1. Descarga `manifest.json` desde GitHub (sin caché).
+2. Comprueba que el launcher no esté deshabilitado ni obsoleto y que el jugador
+   no esté bloqueado.
+3. Autentica (Microsoft u offline).
+4. Pide a la API de FTB la lista de archivos del pack `id`/`version`.
+5. Instala el Java que pide esa versión de Minecraft.
+6. Instala NeoForge en la versión exacta del pack (instalador oficial).
+7. Sincroniza los archivos: descarga lo que falta, revalida por SHA-1 y borra lo
+   que el pack ya no incluye. Solo borra lo que él mismo instaló.
+8. Añade el server a la lista de multijugador y lanza el juego conectándose directo.
 
-Cada vez que un jugador pulsa "Jugar", el launcher:
-
-1. Descarga tu `manifest.json` fresco desde GitHub.
-2. Verifica que el launcher no esté deshabilitado ni obsoleto (`minVersion`) y que el usuario no esté bloqueado.
-3. Instala el Java correcto para la versión de MC (lo descarga de Adoptium si falta).
-4. Instala/actualiza el mod loader indicado.
-5. Sincroniza la carpeta `mods/`: descarga los nuevos, verifica SHA-1 y borra los que quitaste del manifest.
-6. Añade tu server a la lista de multijugador y lanza el juego conectándose directo.
-
-Los archivos del juego viven en `%APPDATA%/Mi Launcher/minecraft`, separados del
-`.minecraft` normal del jugador.
-
-## Publicar una nueva versión del launcher
-
-1. Sube `version` en `package.json` (ej. `1.1.0`) y ejecuta `npm run dist`.
-2. Publica el nuevo instalador (ej. release de GitHub) y pon ese link en `updateUrl` del manifest.
-3. Sube `minVersion` a `1.1.0` en el manifest → todas las copias viejas quedan bloqueadas y muestran el botón de descarga.
+La segunda vez que un jugador abre el launcher, los pasos 4-7 tardan ~3 segundos
+si no hubo cambios.

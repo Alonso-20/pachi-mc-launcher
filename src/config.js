@@ -4,5 +4,5 @@
 // Ejemplo: https://raw.githubusercontent.com/TU_USUARIO/TU_REPO/main/manifest.json
 // ============================================================
 module.exports = {
-  MANIFEST_URL: 'https://raw.githubusercontent.com/TU_USUARIO/TU_REPO/main/manifest.json',
+  MANIFEST_URL: 'https://raw.githubusercontent.com/Alonso-20/pachi-mc-launcher/main/remote/manifest.json',
 };

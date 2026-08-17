@@ -2,35 +2,26 @@
   "launcher": {
     "enabled": true,
     "minVersion": "1.0.0",
-    "updateUrl": "https://github.com/TU_USUARIO/TU_REPO/releases/latest",
-    "message": "¡Bienvenido al server! Temporada 1 ya disponible.",
+    "updateUrl": "https://github.com/Alonso-20/pachi-mc-launcher/releases/latest",
+    "message": "FTB Skies 2: Aero — el launcher instala el modpack completo automáticamente.",
+    "allowOffline": true,
     "blockedUsers": [],
     "allowedUsers": null,
-    "disabledMessage": "El launcher está en mantenimiento. Vuelve más tarde.",
+    "disabledMessage": "El servidor está en mantenimiento. Vuelve más tarde.",
     "blockedMessage": "Tu acceso fue revocado por el administrador.",
-    "notAllowedMessage": "No estás en la lista blanca. Contacta al administrador."
+    "notAllowedMessage": "No estás en la lista de jugadores autorizados. Contacta al administrador."
   },
-  "game": {
-    "mcVersion": "1.20.1",
-    "loader": "fabric"
+  "ftbPack": {
+    "id": 134,
+    "version": 100466,
+    "name": "FTB Skies 2: Aero 1.6.1"
   },
   "server": {
-    "name": "Mi Server",
-    "ip": "play.miserver.com",
+    "name": "Aero",
+    "ip": "https-sauce.tun.ply.gg",
     "port": 25565,
     "autoJoin": true
   },
   "syncMode": "strict",
-  "mods": [
-    {
-      "filename": "fabric-api-0.92.9+1.20.1.jar",
-      "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/hu6gukgT/fabric-api-0.92.9%2B1.20.1.jar",
-      "sha1": "89c79de1c8e17f3d34fded3a2fe401e7e60a707d"
-    },
-    {
-      "filename": "sodium-fabric-0.5.13+mc1.20.1.jar",
-      "url": "https://cdn.modrinth.com/data/AANobbMI/versions/OihdIimA/sodium-fabric-0.5.13%2Bmc1.20.1.jar",
-      "sha1": "bcdbf37d9494e405cba210d7a80ed58e756297b5"
-    }
-  ]
+  "mods": []
 }

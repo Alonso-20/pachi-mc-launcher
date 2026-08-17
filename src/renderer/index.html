@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'" />
-  <title>Mi Launcher</title>
+  <title>Pachi MC Launcher</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="app">
     <header>
-      <div class="logo">⛏️ <span id="title">Mi Launcher</span></div>
+      <div class="logo">⛏️ <span id="title">Pachi MC Launcher</span></div>
       <span class="version" id="launcher-version"></span>
     </header>
 
@@ -23,6 +23,7 @@
         <h2 id="server-name">Cargando servidor...</h2>
         <p class="motd" id="motd"></p>
         <div class="chips">
+          <span class="chip hidden" id="chip-pack"></span>
           <span class="chip hidden" id="chip-version"></span>
           <span class="chip hidden" id="chip-loader"></span>
           <span class="chip hidden" id="chip-mods"></span>
@@ -38,11 +39,12 @@
         <div class="row">
           <label for="ram">Memoria RAM</label>
           <select id="ram">
-            <option value="2">2 GB</option>
-            <option value="4" selected>4 GB</option>
-            <option value="6">6 GB</option>
-            <option value="8">8 GB</option>
+            <option value="4">4 GB</option>
+            <option value="6">6 GB (mínimo para modpacks grandes)</option>
+            <option value="8" selected>8 GB (recomendado)</option>
+            <option value="10">10 GB</option>
             <option value="12">12 GB</option>
+            <option value="16">16 GB</option>
           </select>
         </div>
         <div class="buttons">

@@ -12,8 +12,9 @@ async function fetchManifest(url) {
     const res = await fetch(bust, { signal: controller.signal, cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const manifest = await res.json();
-    if (!manifest.game || !manifest.game.mcVersion) {
-      throw new Error('El manifest no tiene el campo game.mcVersion');
+    const hasPack = manifest.ftbPack && manifest.ftbPack.id;
+    if (!hasPack && !(manifest.game && manifest.game.mcVersion)) {
+      throw new Error('El manifest necesita "ftbPack" o "game.mcVersion"');
     }
     return manifest;
   } finally {
