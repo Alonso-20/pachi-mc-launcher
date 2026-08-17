@@ -152,6 +152,31 @@ input:focus, select:focus { border-color: var(--green); }
   font-weight: 600;
 }
 
+/* Barra de actualización del propio launcher */
+.update-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(88, 166, 255, 0.1);
+  border-bottom: 1px solid rgba(88, 166, 255, 0.45);
+  color: #58a6ff;
+  padding: 10px 24px;
+  font-size: 13px;
+}
+.update-bar span { flex: 1; }
+.btn-update {
+  background: #1f6feb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-update:hover { filter: brightness(1.15); }
+
 #progress-area { padding: 0 4px; }
 .progress-track {
   height: 10px;

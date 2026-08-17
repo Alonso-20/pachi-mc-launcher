@@ -54,14 +54,9 @@ function renderAccount() {
   }
 }
 
-function showBanner(text, updateUrl) {
+function showBanner(text) {
   $('banner-text').textContent = text;
   $('banner').classList.remove('hidden');
-  if (updateUrl) {
-    const link = $('banner-link');
-    link.classList.remove('hidden');
-    link.onclick = () => window.launcher.openExternal(updateUrl);
-  }
 }
 
 function setStatus(text, percent, state) {
@@ -119,7 +114,7 @@ async function init() {
 
   if (res.access && !res.access.ok) {
     blocked = true;
-    showBanner(res.access.reason, res.access.updateUrl);
+    showBanner(res.access.reason);
     return;
   }
 
@@ -166,5 +161,42 @@ usernameInput.addEventListener('keydown', (e) => {
 });
 
 window.launcher.onStatus(({ text, percent, state }) => setStatus(text, percent, state));
+
+// ------------------------------------------------------------
+// Actualización automática del launcher
+// ------------------------------------------------------------
+const updateBar = $('update-bar');
+const updateText = $('update-text');
+const updateInstall = $('update-install');
+
+function showUpdate(text, withButton) {
+  updateBar.classList.remove('hidden');
+  updateText.textContent = text;
+  updateInstall.classList.toggle('hidden', !withButton);
+}
+
+window.launcher.onUpdate((u) => {
+  switch (u.state) {
+    case 'available':
+      showUpdate(`Descargando actualización del launcher (v${u.version})...`, false);
+      break;
+    case 'progress':
+      showUpdate(`Descargando actualización del launcher... ${u.percent}%`, false);
+      break;
+    case 'downloaded':
+      showUpdate(`Actualización v${u.version} lista. Se instalará al cerrar el launcher.`, true);
+      break;
+    default:
+      // 'checking', 'none' y 'error' no se le enseñan al jugador: si no hay
+      // internet o aún no hay releases, el launcher funciona igual.
+      updateBar.classList.add('hidden');
+  }
+});
+
+updateInstall.addEventListener('click', async () => {
+  updateInstall.disabled = true;
+  showUpdate('Instalando actualización, el launcher se reiniciará...', false);
+  await window.launcher.installUpdate();
+});
 
 init();

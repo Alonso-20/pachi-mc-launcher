@@ -40,10 +40,12 @@ function checkAccess(manifest, launcherVersion, username) {
   }
 
   if (l.minVersion && compareVersions(launcherVersion, l.minVersion) < 0) {
+    // No se muestra ninguna URL: el launcher se actualiza solo al reiniciarse.
     return {
       ok: false,
-      reason: `Tu launcher (v${launcherVersion}) quedó obsoleto. Descarga la versión ${l.minVersion} o superior.` +
-        (l.updateUrl ? `\nDescarga: ${l.updateUrl}` : ''),
+      reason:
+        `Tu launcher (v${launcherVersion}) quedó obsoleto y necesita la versión ${l.minVersion} o superior.\n` +
+        'Cierra el launcher y vuelve a abrirlo para que se actualice. Si sigue igual, pide el instalador al administrador.',
       updateUrl: l.updateUrl || null,
     };
   }

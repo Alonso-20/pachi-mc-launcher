@@ -1,10 +1,11 @@
-const { app, BrowserWindow, ipcMain, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const { Client, Authenticator } = require('minecraft-launcher-core');
 
 const { MANIFEST_URL } = require('./config');
 const account = require('./launcher/account');
+const { initUpdater, installNow } = require('./launcher/updater');
 const { fetchManifest, checkAccess } = require('./launcher/manifest');
 const { fetchFtbPack } = require('./launcher/ftb');
 const { syncFiles, modsToFiles } = require('./launcher/sync');
@@ -40,6 +41,10 @@ function saveSettings(s) {
 // Ventana
 // ------------------------------------------------------------
 function createWindow() {
+  // Fuera el menú por defecto: al pulsar Alt aparecía con "Toggle Developer
+  // Tools" a la vista.
+  if (app.isPackaged) Menu.setApplicationMenu(null);
+
   win = new BrowserWindow({
     width: 900,
     height: 640,
@@ -51,9 +56,20 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
+      // En la versión repartida no se pueden abrir las herramientas de
+      // desarrollo, para que nadie curiosee la configuración desde la interfaz.
+      devTools: !app.isPackaged,
     },
   });
   win.loadFile(path.join(__dirname, 'renderer', 'index.html'));
+
+  // La búsqueda de actualizaciones empieza cuando la interfaz ya puede recibir
+  // eventos, para que el jugador vea el progreso desde el primer momento.
+  win.webContents.once('did-finish-load', () => {
+    initUpdater((data) => {
+      if (win && !win.isDestroyed()) win.webContents.send('launcher:update', data);
+    });
+  });
 }
 
 app.whenReady().then(createWindow);
@@ -66,6 +82,25 @@ function sendStatus(text, percent = null, state = 'working') {
   if (win && !win.isDestroyed()) {
     win.webContents.send('launcher:status', { text, percent, state });
   }
+}
+
+/**
+ * Versión recortada del manifest para la interfaz.
+ *
+ * A la ventana solo se le manda lo que necesita pintar. Así no viajan al
+ * proceso de render (ni quedan a la vista de nadie que abra las herramientas de
+ * desarrollo) la URL del repositorio, el enlace de descarga ni las listas de
+ * jugadores bloqueados o autorizados.
+ */
+function publicManifest(m) {
+  const l = m.launcher || {};
+  return {
+    launcher: { message: l.message || '', allowOffline: l.allowOffline !== false },
+    ftbPack: m.ftbPack ? { name: m.ftbPack.name || '' } : null,
+    game: m.game || {},
+    server: m.server ? { name: m.server.name || '', ip: m.server.ip || '' } : null,
+    mods: (m.mods || []).map(() => ({})), // solo interesa cuántos son
+  };
 }
 
 /** La sesión de Microsoft en curso (null si se juega en modo offline). */
@@ -86,7 +121,14 @@ ipcMain.handle('launcher:init', async () => {
     const manifest = await fetchManifest(MANIFEST_URL);
     const nameForCheck = session ? session.name : settings.username || null;
     const access = checkAccess(manifest, app.getVersion(), nameForCheck);
-    return { ok: true, manifest, access, settings, account: publicAccount(), launcherVersion: app.getVersion() };
+    return {
+      ok: true,
+      manifest: publicManifest(manifest),
+      access: { ok: access.ok, reason: access.reason }, // sin updateUrl
+      settings,
+      account: publicAccount(),
+      launcherVersion: app.getVersion(),
+    };
   } catch (err) {
     return {
       ok: false,
@@ -121,8 +163,9 @@ ipcMain.handle('launcher:logout', async () => {
   return { ok: true };
 });
 
-ipcMain.handle('launcher:openExternal', (_e, url) => {
-  if (typeof url === 'string' && /^https?:\/\//.test(url)) shell.openExternal(url);
+ipcMain.handle('launcher:installUpdate', () => {
+  installNow();
+  return { ok: true };
 });
 
 ipcMain.handle('launcher:play', async (_e, opts) => {
