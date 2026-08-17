@@ -19,7 +19,6 @@
   "server": {
     "name": "Aero",
     "ip": "https-sauce.tun.ply.gg",
-    "port": 25565,
     "autoJoin": true
   },
   "syncMode": "strict",

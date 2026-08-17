@@ -230,7 +230,10 @@ function buildQuickPlay(manifest, game) {
   const server = manifest.server;
   if (!server || !server.ip || server.autoJoin === false) return null;
 
-  const identifier = `${server.ip}:${server.port || 25565}`;
+  // Sin puerto explícito se pasa solo el host, para que Minecraft resuelva el
+  // registro SRV del dominio (es como funcionan los túneles tipo playit.gg).
+  // Si se fija el puerto a mano, el SRV se ignora y la conexión falla.
+  const identifier = server.port ? `${server.ip}:${server.port}` : server.ip;
   const m = String(game.mcVersion).match(/^1\.(\d+)/);
   const minor = m ? parseInt(m[1], 10) : 99;
   return { type: minor >= 20 ? 'multiplayer' : 'legacy', identifier };
