@@ -2,9 +2,9 @@ const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const { Client, Authenticator } = require('minecraft-launcher-core');
-const { Auth } = require('msmc');
 
 const { MANIFEST_URL } = require('./config');
+const account = require('./launcher/account');
 const { fetchManifest, checkAccess } = require('./launcher/manifest');
 const { fetchFtbPack } = require('./launcher/ftb');
 const { syncFiles, modsToFiles } = require('./launcher/sync');
@@ -68,20 +68,57 @@ function sendStatus(text, percent = null, state = 'working') {
   }
 }
 
+/** La sesión de Microsoft en curso (null si se juega en modo offline). */
+let session = null;
+
+function publicAccount() {
+  return session ? { name: session.name, uuid: session.uuid, skin: session.skin } : null;
+}
+
 ipcMain.handle('launcher:init', async () => {
   const settings = loadSettings();
+
+  // Se recupera la sesión guardada antes de pintar la interfaz, para que el
+  // jugador vea que sigue conectado sin tener que volver a iniciar sesión.
+  session = await account.restore();
+
   try {
     const manifest = await fetchManifest(MANIFEST_URL);
-    const access = checkAccess(manifest, app.getVersion(), settings.username || null);
-    return { ok: true, manifest, access, settings, launcherVersion: app.getVersion() };
+    const nameForCheck = session ? session.name : settings.username || null;
+    const access = checkAccess(manifest, app.getVersion(), nameForCheck);
+    return { ok: true, manifest, access, settings, account: publicAccount(), launcherVersion: app.getVersion() };
   } catch (err) {
     return {
       ok: false,
       error: `No se pudo obtener la configuración del servidor: ${err.message}`,
       settings,
+      account: publicAccount(),
       launcherVersion: app.getVersion(),
     };
   }
+});
+
+ipcMain.handle('launcher:login', async () => {
+  try {
+    session = await account.login();
+    saveSettings({ ...loadSettings(), mode: 'microsoft' });
+    return { ok: true, account: publicAccount() };
+  } catch (err) {
+    const msg = String((err && err.message) || err);
+    return {
+      ok: false,
+      error: /cancel|closed|abort/i.test(msg)
+        ? 'Cancelaste el inicio de sesión.'
+        : `No se pudo iniciar sesión: ${msg}`,
+    };
+  }
+});
+
+ipcMain.handle('launcher:logout', async () => {
+  account.clearSession();
+  session = null;
+  saveSettings({ ...loadSettings(), mode: 'offline' });
+  return { ok: true };
 });
 
 ipcMain.handle('launcher:openExternal', (_e, url) => {
@@ -120,12 +157,15 @@ async function playFlow({ mode, username, ramGB }) {
   let auth;
   let playerName;
   if (mode === 'microsoft') {
-    sendStatus('Iniciando sesión con Microsoft...', 4);
-    const authManager = new Auth('select_account');
-    const xbox = await authManager.launch('electron');
-    const mc = await xbox.getMinecraft();
-    auth = mc.mclc();
-    playerName = (mc.profile && mc.profile.name) || auth.name;
+    // La sesión ya se validó al abrir el launcher; aquí solo se refresca si el
+    // token caducó mientras la ventana estaba abierta.
+    if (!session) {
+      sendStatus('Reanudando sesión de Microsoft...', 4);
+      session = await account.restore();
+    }
+    if (!session) throw new Error('Tu sesión de Microsoft expiró. Vuelve a iniciar sesión.');
+    auth = session.auth;
+    playerName = session.name;
   } else {
     if (manifest.launcher && manifest.launcher.allowOffline === false) {
       throw new Error('Este servidor solo acepta cuentas premium. Usa el botón de inicio de sesión con Microsoft.');

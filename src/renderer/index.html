@@ -32,7 +32,16 @@
       </section>
 
       <section class="card" id="play-card">
-        <div class="row">
+        <div class="account hidden" id="account-box">
+          <div class="avatar" id="account-avatar"></div>
+          <div class="account-info">
+            <span class="account-name" id="account-name"></span>
+            <span class="account-status">✓ Sesión iniciada con Microsoft</span>
+          </div>
+          <button id="logout" class="btn-link">Cerrar sesión</button>
+        </div>
+
+        <div class="row" id="username-row">
           <label for="username">Nombre de jugador</label>
           <input id="username" type="text" maxlength="16" placeholder="Steve" autocomplete="off" spellcheck="false" />
         </div>
@@ -49,7 +58,7 @@
         </div>
         <div class="buttons">
           <button id="play-offline" class="btn primary" disabled>▶ Jugar</button>
-          <button id="play-ms" class="btn secondary" disabled>Jugar con cuenta Microsoft</button>
+          <button id="login-ms" class="btn secondary" disabled>Iniciar sesión con Microsoft</button>
         </div>
       </section>
 
