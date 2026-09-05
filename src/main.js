@@ -6,9 +6,9 @@ const { Client, Authenticator } = require('minecraft-launcher-core');
 const { MANIFEST_URL } = require('./config');
 const account = require('./launcher/account');
 const { initUpdater, installNow } = require('./launcher/updater');
-const { fetchManifest, checkAccess } = require('./launcher/manifest');
+const { fetchManifest, checkAccess, getPacks } = require('./launcher/manifest');
 const { fetchFtbPack } = require('./launcher/ftb');
-const { syncFiles, modsToFiles } = require('./launcher/sync');
+const { syncFiles, modsToFiles, installPackZip } = require('./launcher/sync');
 const { ensureJava } = require('./launcher/java');
 const { ensureServerEntry } = require('./launcher/servers');
 const { setupLoader } = require('./launcher/loaderconfig');
@@ -19,7 +19,9 @@ let isPlaying = false;
 // ------------------------------------------------------------
 // Rutas locales
 // ------------------------------------------------------------
-const dataDir = () => path.join(app.getPath('userData'), 'minecraft'); // carpeta .minecraft propia
+// Cada pack vive en su propia carpeta. "dir" permite fijarla (el pack original
+// usa "." para no obligar a nadie a volver a descargar 1 GB).
+const dataDir = (pack) => path.join(app.getPath('userData'), 'minecraft', pack.dir || pack.id);
 const javaDir = () => path.join(app.getPath('userData'), 'java');
 const settingsFile = () => path.join(app.getPath('userData'), 'launcher-settings.json');
 
@@ -96,10 +98,16 @@ function publicManifest(m) {
   const l = m.launcher || {};
   return {
     launcher: { message: l.message || '', allowOffline: l.allowOffline !== false },
-    ftbPack: m.ftbPack ? { name: m.ftbPack.name || '' } : null,
-    game: m.game || {},
-    server: m.server ? { name: m.server.name || '', ip: m.server.ip || '' } : null,
-    mods: (m.mods || []).map(() => ({})), // solo interesa cuántos son
+    packs: getPacks(m).map((p) => ({
+      id: p.id,
+      name: p.name,
+      mcVersion: (p.game && p.game.mcVersion) || '',
+      loader: (p.game && p.game.loader) || (p.ftbPack ? 'FTB' : ''),
+      serverName: (p.server && p.server.name) || '',
+      serverIp: (p.server && p.server.ip) || '',
+      mods: (p.mods || []).length,
+      message: p.message || '',
+    })),
   };
 }
 
@@ -185,13 +193,15 @@ ipcMain.handle('launcher:play', async (_e, opts) => {
 // ------------------------------------------------------------
 // Flujo completo de lanzamiento
 // ------------------------------------------------------------
-async function playFlow({ mode, username, ramGB }) {
-  const root = dataDir();
-  fs.mkdirSync(root, { recursive: true });
-
+async function playFlow({ mode, username, ramGB, packId }) {
   // 1. Manifest fresco (el admin puede haber cambiado algo hace un minuto)
   sendStatus('Obteniendo configuración del servidor...', 2);
   const manifest = await fetchManifest(MANIFEST_URL);
+
+  const packs = getPacks(manifest);
+  const pack = packs.find((p) => p.id === packId) || packs[0];
+  const root = dataDir(pack);
+  fs.mkdirSync(root, { recursive: true });
 
   let access = checkAccess(manifest, app.getVersion(), null);
   if (!access.ok) throw new Error(access.reason);
@@ -224,24 +234,24 @@ async function playFlow({ mode, username, ramGB }) {
   if (!access.ok) throw new Error(access.reason);
 
   const settings = loadSettings();
-  saveSettings({ ...settings, username: mode === 'offline' ? playerName : settings.username, ramGB, mode });
+  saveSettings({ ...settings, username: mode === 'offline' ? playerName : settings.username, ramGB, mode, packId: pack.id });
 
-  // 3. Resolver el contenido: modpack de FTB y/o lista de mods del manifest
-  const game = { ...(manifest.game || {}) };
+  // 3. Resolver el contenido del pack elegido
+  const game = { ...(pack.game || {}) };
   let files = [];
 
-  if (manifest.ftbPack && manifest.ftbPack.id) {
+  if (pack.ftbPack && pack.ftbPack.id) {
     sendStatus('Consultando el modpack...', 6);
-    const pack = await fetchFtbPack(manifest.ftbPack.id, manifest.ftbPack.version);
-    files = pack.files;
+    const ftb = await fetchFtbPack(pack.ftbPack.id, pack.ftbPack.version);
+    files = ftb.files;
     // La versión de MC y del loader las manda el modpack salvo que el manifest las fije
-    if (!game.mcVersion) game.mcVersion = pack.targets.minecraft;
+    if (!game.mcVersion) game.mcVersion = ftb.targets.minecraft;
     if (!game.loader) {
-      game.loader = ['neoforge', 'forge', 'fabric', 'quilt'].find((l) => pack.targets[l]) || 'vanilla';
+      game.loader = ['neoforge', 'forge', 'fabric', 'quilt'].find((l) => ftb.targets[l]) || 'vanilla';
     }
-    if (!game.loaderVersion) game.loaderVersion = pack.targets[game.loader];
+    if (!game.loaderVersion) game.loaderVersion = ftb.targets[game.loader];
   }
-  files = files.concat(modsToFiles(manifest.mods));
+  files = files.concat(modsToFiles(pack.mods));
 
   if (!game.mcVersion) throw new Error('El manifest no indica la versión de Minecraft.');
 
@@ -255,21 +265,26 @@ async function playFlow({ mode, username, ramGB }) {
   sendStatus(`Preparando ${game.loader || 'vanilla'} ${game.mcVersion}...`, 16);
   const loaderConfig = await setupLoader(game, root, javaPath, (text) => sendStatus(text, null));
 
-  // 6. Sincronizar mods y configs (descarga lo nuevo, borra lo que quitaste)
+  // 6. Zip oficial del pack (CurseForge): configs, kubejs y recursos propios
+  await installPackZip(pack.packZip, root, (text, pct) =>
+    sendStatus(text, pct != null ? 20 + Math.round(pct * 0.04) : null)
+  );
+
+  // 7. Sincronizar mods y configs (descarga lo nuevo, borra lo que quitaste)
   sendStatus('Sincronizando archivos del modpack...', 24);
   await syncFiles(files, root, {
-    syncMode: manifest.syncMode || 'strict',
+    syncMode: pack.syncMode || 'strict',
     onStatus: (text, pct) => sendStatus(text, pct != null ? 24 + Math.round(pct * 0.34) : null),
   });
 
-  // 7. Registrar el servidor en la lista de multijugador
-  await ensureServerEntry(root, manifest.server);
+  // 8. Registrar el servidor en la lista de multijugador
+  await ensureServerEntry(root, pack.server);
 
-  // 8. Lanzar el juego
+  // 9. Lanzar el juego
   sendStatus('Descargando archivos de Minecraft (la primera vez tarda)...', 60);
 
   const ram = Math.max(2, Math.min(32, Number(ramGB) || 6));
-  const quickPlay = buildQuickPlay(manifest, game);
+  const quickPlay = buildQuickPlay(pack, game);
 
   const launcher = new Client();
   launcher.on('progress', (e) => {
@@ -287,12 +302,18 @@ async function playFlow({ mode, username, ramGB }) {
     javaPath,
     memory: { max: `${ram}G`, min: '2G' },
     ...(quickPlay ? { quickPlay } : {}),
-    overrides: { detached: false },
+    // detached: true es imprescindible. En Windows, un proceso hijo NO detached
+    // muere junto a su padre: si el jugador cerraba el launcher con la partida
+    // abierta, Minecraft se cerraba de golpe y parecía un crasheo.
+    overrides: { detached: true },
   });
 
   if (!child) throw new Error('No se pudo iniciar Minecraft. Revisa la consola del launcher.');
 
-  sendStatus('¡Minecraft iniciado! Que disfrutes.', 100, 'playing');
+  // El launcher deja de "sujetar" al juego: puede cerrarse sin arrastrarlo.
+  child.unref();
+
+  sendStatus('Minecraft está abierto. Ya puedes cerrar este launcher: el juego sigue funcionando.', 100, 'playing');
   if (win && !win.isDestroyed()) win.minimize();
 
   child.on('close', (code) => {
@@ -309,8 +330,8 @@ async function playFlow({ mode, username, ramGB }) {
  * Auto-conexión al server: MC 1.20+ soporta --quickPlayMultiplayer;
  * versiones anteriores usan los flags clásicos --server/--port (tipo "legacy").
  */
-function buildQuickPlay(manifest, game) {
-  const server = manifest.server;
+function buildQuickPlay(pack, game) {
+  const server = pack.server;
   if (!server || !server.ip || server.autoJoin === false) return null;
 
   // Sin puerto explícito se pasa solo el host, para que Minecraft resuelva el

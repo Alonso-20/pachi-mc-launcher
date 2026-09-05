@@ -1,7 +1,7 @@
 {
   "launcher": {
     "enabled": true,
-    "minVersion": "1.1.0",
+    "minVersion": "1.2.0",
     "updateUrl": "https://github.com/Alonso-20/pachi-mc-launcher/releases/latest",
     "message": "FTB Skies 2: Aero — el launcher instala el modpack completo automáticamente.",
     "allowOffline": true,
@@ -11,6 +11,2333 @@
     "blockedMessage": "Tu acceso fue revocado por el administrador.",
     "notAllowedMessage": "No estás en la lista de jugadores autorizados. Contacta al administrador."
   },
+  "packs": [
+    {
+      "id": "aero",
+      "name": "FTB Skies 2: Aero 1.6.1",
+      "dir": ".",
+      "ftbPack": {
+        "id": 134,
+        "version": 100466
+      },
+      "server": {
+        "name": "Aero",
+        "ip": "https-sauce.tun.ply.gg",
+        "autoJoin": true
+      },
+      "syncMode": "strict",
+      "mods": []
+    },
+    {
+      "id": "chocolate",
+      "name": "Chocolate Edition Minecraft 1.9.3",
+      "game": {
+        "mcVersion": "1.19.2",
+        "loader": "forge",
+        "loaderVersion": "43.5.0"
+      },
+      "packZip": {
+        "url": "https://edge.forgecdn.net/files/8036/291/Chocolate%20Edition%20Minecraft-1.9.3.zip",
+        "size": 884252114
+      },
+      "server": {
+        "name": "Chocolate Edition",
+        "ip": "https-sauce.tun.ply.gg",
+        "autoJoin": false
+      },
+      "syncMode": "strict",
+      "mods": [
+        {
+          "filename": "[Moonsu] Better GUI for Sophisticated Backpacks 2.0 1.19x.zip",
+          "url": "https://edge.forgecdn.net/files/6051/24/%5bMoonsu%5d%20Better%20GUI%20for%20Sophisticated%20Backpacks%202.0%201.19x.zip",
+          "sha1": "7072b537ae8f00dc24fdc109f87bf130ea919428",
+          "size": 198275,
+          "path": "resourcepacks/[Moonsu] Better GUI for Sophisticated Backpacks 2.0 1.19x.zip"
+        },
+        {
+          "filename": "3D Tankards.zip",
+          "url": "https://edge.forgecdn.net/files/4783/739/3D%20Tankards.zip",
+          "sha1": "12a4caf98cb503c919f7eea0f6590f3080d0a575",
+          "size": 53911,
+          "path": "resourcepacks/3D Tankards.zip"
+        },
+        {
+          "filename": "abnormals_delight-1.19.2-4.1.2.jar",
+          "url": "https://edge.forgecdn.net/files/5220/861/abnormals_delight-1.19.2-4.1.2.jar",
+          "sha1": "30fb951ff50079d2d5fcd193f8f882f83368c561",
+          "size": 611209
+        },
+        {
+          "filename": "achocmusic-1.0.0-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/8027/129/achocmusic-1.0.0-1.19.2.jar",
+          "sha1": "3c370aece8addb117bb7d80d256d5612d89744dd",
+          "size": 523663173
+        },
+        {
+          "filename": "AdvancementPlaques-1.19.2-1.4.7.jar",
+          "url": "https://edge.forgecdn.net/files/4029/209/AdvancementPlaques-1.19.2-1.4.7.jar",
+          "sha1": "a52677eb955bde82bec4552e0e084b5ffff6e37a",
+          "size": 206511
+        },
+        {
+          "filename": "alexsdelight-1.4.1.jar",
+          "url": "https://edge.forgecdn.net/files/4282/385/alexsdelight-1.4.1.jar",
+          "sha1": "c25bdad692a3d9d8fb0d245e8e2d448a4d6059f4",
+          "size": 54030
+        },
+        {
+          "filename": "alexsmobs-1.21.1.jar",
+          "url": "https://edge.forgecdn.net/files/4159/154/alexsmobs-1.21.1.jar",
+          "sha1": "ce80c8aeed6faa497db2b917da51405c3f273bd8",
+          "size": 25655463
+        },
+        {
+          "filename": "alternate-current-mc1.19-1.7.0.jar",
+          "url": "https://edge.forgecdn.net/files/4609/489/alternate-current-mc1.19-1.7.0.jar",
+          "sha1": "1fffdc728e190d1615d1d4c000683500de5f4daf",
+          "size": 36844
+        },
+        {
+          "filename": "AmbientSounds_FORGE_v5.3.9_mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5491/930/AmbientSounds_FORGE_v5.3.9_mc1.19.2.jar",
+          "sha1": "7eff2c48d745899b498e0786951d0555b29145a0",
+          "size": 84253098
+        },
+        {
+          "filename": "another_furniture-forge-1.19.2-2.1.4.jar",
+          "url": "https://edge.forgecdn.net/files/4675/539/another_furniture-forge-1.19.2-2.1.4.jar",
+          "sha1": "08da2509f6c8ccc19c7d733514072ff37c046ee8",
+          "size": 2002250
+        },
+        {
+          "filename": "apathy-forge-1.19.2-2.7.1.jar",
+          "url": "https://edge.forgecdn.net/files/4611/843/apathy-forge-1.19.2-2.7.1.jar",
+          "sha1": "29ed2618ee63404451b95426de261f7ab6f45e93",
+          "size": 237262
+        },
+        {
+          "filename": "appleskin-forge-mc1.19-2.4.2.jar",
+          "url": "https://edge.forgecdn.net/files/3872/808/appleskin-forge-mc1.19-2.4.2.jar",
+          "sha1": "20f4e36e5c78bdef303683ccb96d77b2036da3ce",
+          "size": 46991
+        },
+        {
+          "filename": "aquaculture_delight_1.0.1_forge_1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/6178/712/aquaculture_delight_1.0.1_forge_1.19.2.jar",
+          "sha1": "63a570b04659b2f80404602f0aef747ba00e2633",
+          "size": 103131
+        },
+        {
+          "filename": "Aquaculture-1.19.2-2.4.17.jar",
+          "url": "https://edge.forgecdn.net/files/5320/128/Aquaculture-1.19.2-2.4.17.jar",
+          "sha1": "99ddd940ab0690ccb1c0bd9752945ea341e4f089",
+          "size": 591222
+        },
+        {
+          "filename": "aquamirae-6.API15.jar",
+          "url": "https://edge.forgecdn.net/files/4522/264/aquamirae-6.API15.jar",
+          "sha1": "aa00812f87ca2638e4bc476a777eb20f9386fa79",
+          "size": 17322001
+        },
+        {
+          "filename": "architectury-6.6.92-forge.jar",
+          "url": "https://edge.forgecdn.net/files/5137/942/architectury-6.6.92-forge.jar",
+          "sha1": "16fad847d50aa4363180c73afb782e76d53f3656",
+          "size": 559099
+        },
+        {
+          "filename": "armoradjustment-1.19-1.2.0.jar",
+          "url": "https://edge.forgecdn.net/files/4394/467/armoradjustment-1.19-1.2.0.jar",
+          "sha1": "18bc560566598c7d91767564355c0386402ce163",
+          "size": 5626
+        },
+        {
+          "filename": "art_of_forging-1.6.7-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4556/865/art_of_forging-1.6.7-1.19.2.jar",
+          "sha1": "39869f573d6c1761c6bd54ae899682ca6fea56b2",
+          "size": 198837
+        },
+        {
+          "filename": "artifacts-1.19.2-5.0.6.jar",
+          "url": "https://edge.forgecdn.net/files/5384/768/artifacts-1.19.2-5.0.6.jar",
+          "sha1": "2638eb4b82894fa3904a02728eef2b2404852a3e",
+          "size": 602656
+        },
+        {
+          "filename": "atmospheric-1.19.2-5.1.2.jar",
+          "url": "https://edge.forgecdn.net/files/5239/546/atmospheric-1.19.2-5.1.2.jar",
+          "sha1": "6774afcb0071f3377f659e99c3e2490de5ed53f9",
+          "size": 2793007
+        },
+        {
+          "filename": "AttributeFix-Forge-1.19.2-17.2.8.jar",
+          "url": "https://edge.forgecdn.net/files/5126/457/AttributeFix-Forge-1.19.2-17.2.8.jar",
+          "sha1": "aa119b01daac09532715eb147f7990f2ae377c09",
+          "size": 19478
+        },
+        {
+          "filename": "auto_third_person-forge-1.19.2-2.1.jar",
+          "url": "https://edge.forgecdn.net/files/4730/71/auto_third_person-forge-1.19.2-2.1.jar",
+          "sha1": "9f7093f54bb9b481dc7d6a28327b6891ad400c43",
+          "size": 50123
+        },
+        {
+          "filename": "autooredictconv-1.19.2-19.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/4502/857/autooredictconv-1.19.2-19.0.0.jar",
+          "sha1": "8c3b0a95b5f6077fdc6b9937444bde4d5ccf3a40",
+          "size": 36206
+        },
+        {
+          "filename": "AutoRegLib-1.8.2-55.jar",
+          "url": "https://edge.forgecdn.net/files/4100/299/AutoRegLib-1.8.2-55.jar",
+          "sha1": "342cac5511fe7009a260bc0a25fee777179ba530",
+          "size": 45741
+        },
+        {
+          "filename": "autumnity-1.19.2-4.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/4776/187/autumnity-1.19.2-4.0.1.jar",
+          "sha1": "851303e6fb52410709b270f40609806fac9621b9",
+          "size": 1216803
+        },
+        {
+          "filename": "balm-forge-1.19.2-4.6.0.jar",
+          "url": "https://edge.forgecdn.net/files/4751/735/balm-forge-1.19.2-4.6.0.jar",
+          "sha1": "26e05173447e692783eb6a92197f6bf45d894e54",
+          "size": 314084
+        },
+        {
+          "filename": "BarteringStation-v4.0.3-1.19.2-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/4067/998/BarteringStation-v4.0.3-1.19.2-Forge.jar",
+          "sha1": "0b3ff3ea42c27b31284dacc6af20a1a67a875943",
+          "size": 120963
+        },
+        {
+          "filename": "bestylewither-forge-mc1.19-1.3.2.jar",
+          "url": "https://edge.forgecdn.net/files/4376/611/bestylewither-forge-mc1.19-1.3.2.jar",
+          "sha1": "c2d995676b6e56f5768239436f7fc0c15237988a",
+          "size": 165348
+        },
+        {
+          "filename": "Better_Enderdragon.zip",
+          "url": "https://edge.forgecdn.net/files/4333/759/Better_Enderdragon.zip",
+          "sha1": "1a75070f90bd687ea74b6782da46ca24a0647c44",
+          "size": 43297,
+          "path": "resourcepacks/Better_Enderdragon.zip"
+        },
+        {
+          "filename": "BetterAdvancements-1.19.2-0.3.0.148.jar",
+          "url": "https://edge.forgecdn.net/files/4276/529/BetterAdvancements-1.19.2-0.3.0.148.jar",
+          "sha1": "0612af535b9a66316987bb0f1f851be94816eca0",
+          "size": 73255
+        },
+        {
+          "filename": "bettercombat-forge-1.7.1+1.19.jar",
+          "url": "https://edge.forgecdn.net/files/4534/619/bettercombat-forge-1.7.1%2b1.19.jar",
+          "sha1": "d56b38f8d809389b579f65dee51977037d313b60",
+          "size": 904072
+        },
+        {
+          "filename": "BetterCompatibilityChecker-1.0.10-build.50+mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4441/760/BetterCompatibilityChecker-1.0.10-build.50%2bmc1.19.2.jar",
+          "sha1": "8219cb875a75a561befebb56511b9c4507fdb0ea",
+          "size": 15988
+        },
+        {
+          "filename": "betterfpsdist-1.19.2-4.1.jar",
+          "url": "https://edge.forgecdn.net/files/5100/224/betterfpsdist-1.19.2-4.1.jar",
+          "sha1": "0dc6528d4e9208221485bc8fa6e0e5fdf427364e",
+          "size": 17012
+        },
+        {
+          "filename": "BetterTotemOfUndying-Forge-1.19.2-1.1.0.jar",
+          "url": "https://edge.forgecdn.net/files/4755/192/BetterTotemOfUndying-Forge-1.19.2-1.1.0.jar",
+          "sha1": "1b870d4fa13457d2c31e5a93ec56043ff5d3959e",
+          "size": 61191
+        },
+        {
+          "filename": "BHMenu-Forge-1.19.2-2.4.2.jar",
+          "url": "https://edge.forgecdn.net/files/5877/700/BHMenu-Forge-1.19.2-2.4.2.jar",
+          "sha1": "0184c1ea155184f1fd8cbe39248f13a13d10c128",
+          "size": 165560
+        },
+        {
+          "filename": "biggerstacks-1.19.2-3.8.2-all.jar",
+          "url": "https://edge.forgecdn.net/files/5924/970/biggerstacks-1.19.2-3.8.2-all.jar",
+          "sha1": "eae0317217e8972c4556466c5941f94434100335",
+          "size": 715781
+        },
+        {
+          "filename": "Block Swap-forge-1.19.2-2.0.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/4598/240/Block%20Swap-forge-1.19.2-2.0.0.1.jar",
+          "sha1": "f00e25682c006dbbe5f3539c6f39a00d6ec7178d",
+          "size": 307671
+        },
+        {
+          "filename": "blue_skies-1.19.2-1.3.20.jar",
+          "url": "https://edge.forgecdn.net/files/3966/273/blue_skies-1.19.2-1.3.20.jar",
+          "sha1": "021d984448afab3d062c62bc09f94b766f51c3a7",
+          "size": 82865712
+        },
+        {
+          "filename": "blueprint-1.19.2-6.2.0.jar",
+          "url": "https://edge.forgecdn.net/files/4749/0/blueprint-1.19.2-6.2.0.jar",
+          "sha1": "5ca0f02b058e42d6dd33051e5b4b1d928b6b7e16",
+          "size": 992248
+        },
+        {
+          "filename": "bobby-1.19.2_v5.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/4650/224/bobby-1.19.2_v5.0.1.jar",
+          "sha1": "a572ca55395ee42191afcee5b7a4e65197dfd2e5",
+          "size": 84124
+        },
+        {
+          "filename": "bocchium-1.19.2-0.0.3.jar",
+          "url": "https://edge.forgecdn.net/files/5086/736/bocchium-1.19.2-0.0.3.jar",
+          "sha1": "ac36f7dab81dfce41a68b0fee3a1e20a16bd493f",
+          "size": 10154
+        },
+        {
+          "filename": "BOMD-Forge-1.19.2-1.0.6.jar",
+          "url": "https://edge.forgecdn.net/files/4955/735/BOMD-Forge-1.19.2-1.0.6.jar",
+          "sha1": "f438f30958acd781c7a071cd9629c139ad3409b7",
+          "size": 1845562
+        },
+        {
+          "filename": "Bookshelf-Forge-1.19.2-16.3.20.jar",
+          "url": "https://edge.forgecdn.net/files/4556/697/Bookshelf-Forge-1.19.2-16.3.20.jar",
+          "sha1": "0129da71db70f19703cd594d6d931b465e6a963f",
+          "size": 320523
+        },
+        {
+          "filename": "born_in_chaos_[Forge]1.19.2_1.10.1.jar",
+          "url": "https://edge.forgecdn.net/files/5085/770/born_in_chaos_%5bForge%5d1.19.2_1.10.1.jar",
+          "sha1": "a667893804c260349ea8616113460f8b40041fa6",
+          "size": 10265127
+        },
+        {
+          "filename": "bosshealthregain-1.0.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/4057/122/bosshealthregain-1.0.0.1.jar",
+          "sha1": "db002c812159befa16b031ad943fc4e48a33bbc4",
+          "size": 6043
+        },
+        {
+          "filename": "brazier-forge-5.1.1.jar",
+          "url": "https://edge.forgecdn.net/files/4702/290/brazier-forge-5.1.1.jar",
+          "sha1": "310e3661cb147d99e7c1acd9302de1575534fbbc",
+          "size": 268302
+        },
+        {
+          "filename": "BrewinAndChewin-1.19-2.0.jar",
+          "url": "https://edge.forgecdn.net/files/4468/49/BrewinAndChewin-1.19-2.0.jar",
+          "sha1": "04ccef86a671471a6e183caec98aa3b02f5f9996",
+          "size": 366890
+        },
+        {
+          "filename": "bstweaks-1.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/6153/561/bstweaks-1.0.1.jar",
+          "sha1": "c37b2d1a8e0635f4acf8798e5785241013e4284f",
+          "size": 20002
+        },
+        {
+          "filename": "caelus-forge-1.19.2-3.0.0.6.jar",
+          "url": "https://edge.forgecdn.net/files/3929/284/caelus-forge-1.19.2-3.0.0.6.jar",
+          "sha1": "bd9d920381a8e539c27492b3ebb77863fe3dd064",
+          "size": 37254
+        },
+        {
+          "filename": "callablehorses-1.19.2-1.2.2.3.jar",
+          "url": "https://edge.forgecdn.net/files/4111/376/callablehorses-1.19.2-1.2.2.3.jar",
+          "sha1": "9f05cb2db4515854d811763e63c34330487a828b",
+          "size": 136935
+        },
+        {
+          "filename": "calmmornings-1.19.2-4.0.7.jar",
+          "url": "https://edge.forgecdn.net/files/6262/418/calmmornings-1.19.2-4.0.7.jar",
+          "sha1": "0caed1cea15d01461a4944b745866e761aad687c",
+          "size": 278776
+        },
+        {
+          "filename": "carryon-forge-1.19.2-2.1.2.23.jar",
+          "url": "https://edge.forgecdn.net/files/5141/759/carryon-forge-1.19.2-2.1.2.23.jar",
+          "sha1": "5d2f59451665f5b703cce9fbd9bd6af1aec4c6ad",
+          "size": 440569
+        },
+        {
+          "filename": "caveore-1.19.2-2.3.jar",
+          "url": "https://edge.forgecdn.net/files/3930/777/caveore-1.19.2-2.3.jar",
+          "sha1": "06fad432b185f6bf693b2c5dd0553cec22c8809a",
+          "size": 16934
+        },
+        {
+          "filename": "celestisynth-1.19.2-1.1.5.jar",
+          "url": "https://edge.forgecdn.net/files/5033/999/celestisynth-1.19.2-1.1.5.jar",
+          "sha1": "c95bf1f66059348b071fab2cf5a19b737f62d2c3",
+          "size": 1092025
+        },
+        {
+          "filename": "cherishedworlds-forge-6.0.5+1.19.4.jar",
+          "url": "https://edge.forgecdn.net/files/4500/351/cherishedworlds-forge-6.0.5%2b1.19.4.jar",
+          "sha1": "63ee2390450dd0cba5e6af0060db4253a0347068",
+          "size": 58480
+        },
+        {
+          "filename": "Choc Xaeros Icons V1.1.zip",
+          "url": "https://edge.forgecdn.net/files/6497/111/Choc%20Xaeros%20Icons%20V1.1.zip",
+          "sha1": "9fbfebc2e72536c7088719458a1e45144da57a2d",
+          "size": 867536,
+          "path": "resourcepacks/Choc Xaeros Icons V1.1.zip"
+        },
+        {
+          "filename": "chocky_tweaks-1.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/5641/316/chocky_tweaks-1.0.1.jar",
+          "sha1": "0eb4e7c68a40a293860ced2477515a27a8540446",
+          "size": 293829
+        },
+        {
+          "filename": "chunksending-1.19.2-2.8.jar",
+          "url": "https://edge.forgecdn.net/files/4894/788/chunksending-1.19.2-2.8.jar",
+          "sha1": "8a11abde1ef73316bdbf6b3b66b0b76ff70a8125",
+          "size": 11897
+        },
+        {
+          "filename": "citadel-2.1.4-1.19.jar",
+          "url": "https://edge.forgecdn.net/files/4556/677/citadel-2.1.4-1.19.jar",
+          "sha1": "59a080397f767536f85bee28eb805e12d0317bdd",
+          "size": 3063232
+        },
+        {
+          "filename": "clayworks-1.19.2-2.1.0.jar",
+          "url": "https://edge.forgecdn.net/files/4776/86/clayworks-1.19.2-2.1.0.jar",
+          "sha1": "cbbd9b65d6d99d99a8131888ea6670b2f4fa8329",
+          "size": 1217886
+        },
+        {
+          "filename": "clickadv-1.19.2-3.6.jar",
+          "url": "https://edge.forgecdn.net/files/4887/0/clickadv-1.19.2-3.6.jar",
+          "sha1": "1fc55b67a81c805e235c308cd7d07fc74ec4cf04",
+          "size": 15679
+        },
+        {
+          "filename": "cloth-config-8.3.134-forge.jar",
+          "url": "https://edge.forgecdn.net/files/5729/96/cloth-config-8.3.134-forge.jar",
+          "sha1": "e2a3a4e9eeae37b7e79aa8e72bb2834675fe4fe5",
+          "size": 1176412
+        },
+        {
+          "filename": "Clumps-forge-1.19.2-9.0.0+14.jar",
+          "url": "https://edge.forgecdn.net/files/4153/347/Clumps-forge-1.19.2-9.0.0%2b14.jar",
+          "sha1": "fa1ea47e0da5a219355bd5b6cf5df6e821b2baf8",
+          "size": 19083
+        },
+        {
+          "filename": "cluttered-2.1.1-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4729/944/cluttered-2.1.1-1.19.2.jar",
+          "sha1": "e13a9ee5dd5ca277db1aaa4c65ff579e230badf0",
+          "size": 5954216
+        },
+        {
+          "filename": "CNB-1.19-1.5.4.jar",
+          "url": "https://edge.forgecdn.net/files/4556/106/CNB-1.19-1.5.4.jar",
+          "sha1": "0941e384d4ecd947bc442d9bcbd5a77dfedc4ddb",
+          "size": 1322412
+        },
+        {
+          "filename": "collective-1.19.2-7.64.jar",
+          "url": "https://edge.forgecdn.net/files/5460/518/collective-1.19.2-7.64.jar",
+          "sha1": "3973b06887af84262f33a9e3b6927f61d4c918ff",
+          "size": 618144
+        },
+        {
+          "filename": "combatroll-forge-1.1.5+1.19.jar",
+          "url": "https://edge.forgecdn.net/files/4428/898/combatroll-forge-1.1.5%2b1.19.jar",
+          "sha1": "341db51c4091efe11eeba14649c71ac1a95caba4",
+          "size": 199326
+        },
+        {
+          "filename": "comforts-forge-6.0.7+1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4977/779/comforts-forge-6.0.7%2b1.19.2.jar",
+          "sha1": "f056d216add336bdd5a42806df8731e6f08a4f4f",
+          "size": 331918
+        },
+        {
+          "filename": "Companion-1.19.2-forge-3.1.3.jar",
+          "url": "https://edge.forgecdn.net/files/4626/322/Companion-1.19.2-forge-3.1.3.jar",
+          "sha1": "796d7b30f74d6ab44704fe1d490a82bd4fc02246",
+          "size": 32486
+        },
+        {
+          "filename": "ComplementaryReimagined_r5.4.zip",
+          "url": "https://edge.forgecdn.net/files/6137/620/ComplementaryReimagined_r5.4.zip",
+          "sha1": "322e8251aa78b6b893bfeed92ec8173c9150e97e",
+          "size": 452405,
+          "path": "shaderpacks/ComplementaryReimagined_r5.4.zip"
+        },
+        {
+          "filename": "condensed_creative-2.0.2+1.19-forge.jar",
+          "url": "https://edge.forgecdn.net/files/3987/714/condensed_creative-2.0.2%2b1.19-forge.jar",
+          "sha1": "65894f1d6e04b755a4615dfb4559237ab248b467",
+          "size": 288099
+        },
+        {
+          "filename": "ConfigurableKeepInventory-1.19.2-1.11.jar",
+          "url": "https://edge.forgecdn.net/files/5026/354/ConfigurableKeepInventory-1.19.2-1.11.jar",
+          "sha1": "24305728cff9f0c56f1767b99ca3e4d811ff84f5",
+          "size": 113801
+        },
+        {
+          "filename": "configurablemobpotioneffects-1.19.2-3.3.jar",
+          "url": "https://edge.forgecdn.net/files/5169/44/configurablemobpotioneffects-1.19.2-3.3.jar",
+          "sha1": "ba723e6a73b310b868dca5780657b6bb5ee663f7",
+          "size": 36167
+        },
+        {
+          "filename": "configured-2.1.1-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4462/837/configured-2.1.1-1.19.2.jar",
+          "sha1": "27e301553d9850386395bd199805999c3bd9184a",
+          "size": 311480
+        },
+        {
+          "filename": "connectedglass-1.1.13-forge-mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/6396/977/connectedglass-1.1.13-forge-mc1.19.2.jar",
+          "sha1": "439f4656565217e45584f4bd811c1b2fe6444cc8",
+          "size": 875580
+        },
+        {
+          "filename": "connectivity-1.19.2-4.6.jar",
+          "url": "https://edge.forgecdn.net/files/4764/733/connectivity-1.19.2-4.6.jar",
+          "sha1": "4949acd920cf5688cfab70ea94e48877cb6e6968",
+          "size": 62868
+        },
+        {
+          "filename": "controllable-0.18.0-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4445/137/controllable-0.18.0-1.19.2.jar",
+          "sha1": "cc4999295b0f5516679223a0a09da6dac953b7e8",
+          "size": 364261
+        },
+        {
+          "filename": "Controlling-forge-1.19.2-10.0+7.jar",
+          "url": "https://edge.forgecdn.net/files/4050/343/Controlling-forge-1.19.2-10.0%2b7.jar",
+          "sha1": "d4f0dd0adc62ef695fbf52df5ad92e9c888082a0",
+          "size": 117659
+        },
+        {
+          "filename": "CorgiLib-forge-1.19.2-1.0.0.34.jar",
+          "url": "https://edge.forgecdn.net/files/4554/111/CorgiLib-forge-1.19.2-1.0.0.34.jar",
+          "sha1": "9006deecb4c35a0f137ebfea1fa1a1295615f398",
+          "size": 285958
+        },
+        {
+          "filename": "corundumguardian-1.2.1-forge-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5694/886/corundumguardian-1.2.1-forge-1.19.2.jar",
+          "sha1": "6ae4cd33a3d933cc933112cd1be600f963e0c918",
+          "size": 622303
+        },
+        {
+          "filename": "CosmeticArmorReworked-1.19.2-v1a.jar",
+          "url": "https://edge.forgecdn.net/files/4016/732/CosmeticArmorReworked-1.19.2-v1a.jar",
+          "sha1": "be03baf7c7a3b7b346137faf212c17a94cad94c3",
+          "size": 87648
+        },
+        {
+          "filename": "craftingtweaks-forge-1.19.2-15.1.9.jar",
+          "url": "https://edge.forgecdn.net/files/4939/198/craftingtweaks-forge-1.19.2-15.1.9.jar",
+          "sha1": "34fb82b1a5a9e10d364bff57041e5e50f3b3d5b7",
+          "size": 182830
+        },
+        {
+          "filename": "CraftTweaker-forge-1.19.2-10.1.56.jar",
+          "url": "https://edge.forgecdn.net/files/6256/46/CraftTweaker-forge-1.19.2-10.1.56.jar",
+          "sha1": "087c66598b1fbecf10cdcee963a6eff4f8f93743",
+          "size": 3044307
+        },
+        {
+          "filename": "CraterLib-Forge-1.19.2-2.1.4.jar",
+          "url": "https://edge.forgecdn.net/files/6347/172/CraterLib-Forge-1.19.2-2.1.4.jar",
+          "sha1": "cdd5524c2f06bb9bb5af7cd55df5bf369d7c0e96",
+          "size": 2010400
+        },
+        {
+          "filename": "Create Simple Storage 2.1.zip",
+          "url": "https://edge.forgecdn.net/files/4559/986/Create%20Simple%20Storage%202.1.zip",
+          "sha1": "9aeba68908b086b8eb74a731b0c4b34795799b88",
+          "size": 78236,
+          "path": "resourcepacks/Create Simple Storage 2.1.zip"
+        },
+        {
+          "filename": "create_central_kitchen-1.19.2-for-create-0.5.1.f-1.3.11.c.jar",
+          "url": "https://edge.forgecdn.net/files/5232/209/create_central_kitchen-1.19.2-for-create-0.5.1.f-1.3.11.c.jar",
+          "sha1": "c1fb427ccbf1c2bc3b2485af8393ff0a5a5f283c",
+          "size": 1173168
+        },
+        {
+          "filename": "Create_Questing-FORGE-1.19.2-1.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/4773/361/Create_Questing-FORGE-1.19.2-1.0.0.jar",
+          "sha1": "023dfa4413f96020f543e7538646682c6ed214bb",
+          "size": 586528
+        },
+        {
+          "filename": "create-1.19.2-0.5.1.i.jar",
+          "url": "https://edge.forgecdn.net/files/5797/604/create-1.19.2-0.5.1.i.jar",
+          "sha1": "3df3c0df1b675d7230a7303e37c53c9fdc3d2294",
+          "size": 15531765
+        },
+        {
+          "filename": "create-confectionery1.19.2_v1.0.9.jar",
+          "url": "https://edge.forgecdn.net/files/4561/123/create-confectionery1.19.2_v1.0.9.jar",
+          "sha1": "110acb4b8c5c2acd7dfb3f9a2b9cfbfd60d90be1",
+          "size": 2121033
+        },
+        {
+          "filename": "createdeco-1.3.3-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4554/164/createdeco-1.3.3-1.19.2.jar",
+          "sha1": "82ba4a2534670c52a91803704bfd343289408a0a",
+          "size": 3113663
+        },
+        {
+          "filename": "CreateSophisticatedBackpacks.zip",
+          "url": "https://edge.forgecdn.net/files/6157/360/CreateSophisticatedBackpacks.zip",
+          "sha1": "0a119ab68a6b2cb824d545c0dc2dc44b1339cc94",
+          "size": 556651,
+          "path": "resourcepacks/CreateSophisticatedBackpacks.zip"
+        },
+        {
+          "filename": "CreateTweaker-1.19.2-3.0.0.9.jar",
+          "url": "https://edge.forgecdn.net/files/6147/807/CreateTweaker-1.19.2-3.0.0.9.jar",
+          "sha1": "c3e1870b97a216696193699d41871357f67a5eb3",
+          "size": 108561
+        },
+        {
+          "filename": "CreativeCore_FORGE_v2.11.28_mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5491/926/CreativeCore_FORGE_v2.11.28_mc1.19.2.jar",
+          "sha1": "455061d6b23b35b7f75aabadc9a522a464b68201",
+          "size": 1116183
+        },
+        {
+          "filename": "creeperoverhaul-2.0.9-forge.jar",
+          "url": "https://edge.forgecdn.net/files/4444/675/creeperoverhaul-2.0.9-forge.jar",
+          "sha1": "4047044f8e4bf3861da007a9b924ce2bffe6f852",
+          "size": 1103111
+        },
+        {
+          "filename": "crittersandcompanions-1.19.2-2.1.2.jar",
+          "url": "https://edge.forgecdn.net/files/5053/442/crittersandcompanions-1.19.2-2.1.2.jar",
+          "sha1": "294077cc7f38a4a25a60f70b95e1bc251e2b6588",
+          "size": 1325812
+        },
+        {
+          "filename": "cullleaves-forge-3.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/4103/89/cullleaves-forge-3.0.1.jar",
+          "sha1": "4fcad32828c1769c16692c5bbf9644e207c55d53",
+          "size": 94571
+        },
+        {
+          "filename": "cupboard-1.19.2-2.6.jar",
+          "url": "https://edge.forgecdn.net/files/5170/313/cupboard-1.19.2-2.6.jar",
+          "sha1": "15ecda890cf08bcef7e4e6976d521a2bb8584a2e",
+          "size": 24766
+        },
+        {
+          "filename": "curios-forge-1.19.2-5.1.6.4.jar",
+          "url": "https://edge.forgecdn.net/files/5843/737/curios-forge-1.19.2-5.1.6.4.jar",
+          "sha1": "a55e17db774bd5ab957966a09b42297ceafc70e1",
+          "size": 288916
+        },
+        {
+          "filename": "CuriosQuarkOBP-1.19.2-1.2.4.jar",
+          "url": "https://edge.forgecdn.net/files/4717/773/CuriosQuarkOBP-1.19.2-1.2.4.jar",
+          "sha1": "931fd6daeecca4cc36700e2771a04fae38876b0a",
+          "size": 31924
+        },
+        {
+          "filename": "debugify-1.1.0-forge-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4705/473/debugify-1.1.0-forge-1.19.2.jar",
+          "sha1": "401c56dc7b4f3d8d91c2c25588af956825beeba0",
+          "size": 359664
+        },
+        {
+          "filename": "Delightful-1.19.2-3.4.1.jar",
+          "url": "https://edge.forgecdn.net/files/4792/851/Delightful-1.19.2-3.4.1.jar",
+          "sha1": "531b4031e28fc5c72ae2584f9123f9439d633342",
+          "size": 952298
+        },
+        {
+          "filename": "despawn_tweaker-1.19.2-1.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/5098/396/despawn_tweaker-1.19.2-1.0.0.jar",
+          "sha1": "f99bdfa68edd8e836280cfedbd3653cd8d1f97a8",
+          "size": 11860
+        },
+        {
+          "filename": "diet-forge-2.0.1+1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4813/890/diet-forge-2.0.1%2b1.19.2.jar",
+          "sha1": "194d477fb1383d1e5cde889ded86b0e276e5fe74",
+          "size": 321654
+        },
+        {
+          "filename": "dimensionalsycnfixes-1.19.2-0.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/4960/331/dimensionalsycnfixes-1.19.2-0.0.1.jar",
+          "sha1": "ad934265b6c6690028e673c0e89c5379a35e29a3",
+          "size": 3084
+        },
+        {
+          "filename": "DimensionStages-1.19.2-4.0.4.jar",
+          "url": "https://edge.forgecdn.net/files/4459/586/DimensionStages-1.19.2-4.0.4.jar",
+          "sha1": "03af5c8770bab3fb51a97c565fb0f9af721b30de",
+          "size": 12835
+        },
+        {
+          "filename": "doapi-1.1.0b.jar",
+          "url": "https://edge.forgecdn.net/files/4676/882/doapi-1.1.0b.jar",
+          "sha1": "3be69b24454d1af75d6b386825f5d50a5388732c",
+          "size": 366613
+        },
+        {
+          "filename": "domesticationinnovation-1.6.1-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4154/24/domesticationinnovation-1.6.1-1.19.2.jar",
+          "sha1": "9d26f64a4dac8e4a36f7e3578c8b7df2ac050372",
+          "size": 828625
+        },
+        {
+          "filename": "doubledoors-1.19.2-5.7.jar",
+          "url": "https://edge.forgecdn.net/files/5334/520/doubledoors-1.19.2-5.7.jar",
+          "sha1": "6e6e84b84e61c5e0d1b81e40d667b6f37b2616a2",
+          "size": 49101
+        },
+        {
+          "filename": "dragonmounts-1.19.2-1.1.4a.jar",
+          "url": "https://edge.forgecdn.net/files/3925/406/dragonmounts-1.19.2-1.1.4a.jar",
+          "sha1": "4288641f9addc56e84c065409261db35053fa123",
+          "size": 493789
+        },
+        {
+          "filename": "drawerfps-1.19.2-1.8.jar",
+          "url": "https://edge.forgecdn.net/files/3934/232/drawerfps-1.19.2-1.8.jar",
+          "sha1": "23f3f81f6df336fbe54fd8cd386adeace3f45ef9",
+          "size": 10349
+        },
+        {
+          "filename": "dummmmmmy-1.19.2-1.7.1.jar",
+          "url": "https://edge.forgecdn.net/files/4410/143/dummmmmmy-1.19.2-1.7.1.jar",
+          "sha1": "27dba288fb5435f2b110ea31ea5f1209c71a93d6",
+          "size": 186878
+        },
+        {
+          "filename": "dungeons_libraries-1.19.2-3.0.12-beta-all.jar",
+          "url": "https://edge.forgecdn.net/files/5112/44/dungeons_libraries-1.19.2-3.0.12-beta-all.jar",
+          "sha1": "4df66f3df472c1857d3579fee6d6e78233a1b64c",
+          "size": 787868
+        },
+        {
+          "filename": "dungeons_mobs-1.19.2-4.0.8-beta.jar",
+          "url": "https://edge.forgecdn.net/files/4501/524/dungeons_mobs-1.19.2-4.0.8-beta.jar",
+          "sha1": "5f2f20abd0da40801802895fac76e4d499dbfd47",
+          "size": 12334261
+        },
+        {
+          "filename": "DungeonsArise-1.19.2-2.1.56-beta.jar",
+          "url": "https://edge.forgecdn.net/files/4599/706/DungeonsArise-1.19.2-2.1.56-beta.jar",
+          "sha1": "d09651cc449c0ef5f09630b6167f591fc2b273bd",
+          "size": 7373714
+        },
+        {
+          "filename": "durabilitytooltip-1.1.5-forge-mc1.19.jar",
+          "url": "https://edge.forgecdn.net/files/4741/15/durabilitytooltip-1.1.5-forge-mc1.19.jar",
+          "sha1": "3b5093a06cd8bbcfeca9610da7095e5c4407acf4",
+          "size": 19640
+        },
+        {
+          "filename": "DustrialDecor-1.3.3-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4103/964/DustrialDecor-1.3.3-1.19.2.jar",
+          "sha1": "ffd4e6fe0ae6d2b8146a04a6f0279cc9a184a204",
+          "size": 413626
+        },
+        {
+          "filename": "dynview-1.19.1-2.9.jar",
+          "url": "https://edge.forgecdn.net/files/3919/241/dynview-1.19.1-2.9.jar",
+          "sha1": "15f5ae3923d1082a062700c78a4eee92513581d6",
+          "size": 23713
+        },
+        {
+          "filename": "e4mc_minecraft-forge-5.3.1.jar",
+          "url": "https://edge.forgecdn.net/files/6418/120/e4mc_minecraft-forge-5.3.1.jar",
+          "sha1": "3a3569c62fb86cb176067fc5cb2444cfa074a056",
+          "size": 623045
+        },
+        {
+          "filename": "easy_npc-forge-1.19.2-5.8.1.jar",
+          "url": "https://edge.forgecdn.net/files/6005/782/easy_npc-forge-1.19.2-5.8.1.jar",
+          "sha1": "306ce31a03238d1624366089822b4bf9c60bd90d",
+          "size": 1595008
+        },
+        {
+          "filename": "EasyAnvils-v4.0.11-1.19.2-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/4499/466/EasyAnvils-v4.0.11-1.19.2-Forge.jar",
+          "sha1": "11dfb497071be98897e8510af1446f2c2a45b4f4",
+          "size": 156918
+        },
+        {
+          "filename": "EasyShulkerBoxes-v4.4.1-1.19.2-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/4559/54/EasyShulkerBoxes-v4.4.1-1.19.2-Forge.jar",
+          "sha1": "64569fb1bde9884d7e19ae0567862a4a9f9c4bc8",
+          "size": 281146
+        },
+        {
+          "filename": "EclecticTrove-noconfig-1.19.2-1.3.0.zip",
+          "url": "https://edge.forgecdn.net/files/4934/27/EclecticTrove-noconfig-1.19.2-1.3.0.zip",
+          "sha1": "0940347a9745d96d6f7416dabf81142362f796a5",
+          "size": 13649,
+          "path": "resourcepacks/EclecticTrove-noconfig-1.19.2-1.3.0.zip"
+        },
+        {
+          "filename": "ecologics-forge-1.19.2-2.1.11.jar",
+          "url": "https://edge.forgecdn.net/files/4171/285/ecologics-forge-1.19.2-2.1.11.jar",
+          "sha1": "e9c0d8ac54bf10bb1113e38e51b66e06bb9d4d74",
+          "size": 1811681
+        },
+        {
+          "filename": "embeddium-0.3.18.1+mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5539/178/embeddium-0.3.18.1%2bmc1.19.2.jar",
+          "sha1": "e5e2884a8700251f85573bd412cacd13229045f9",
+          "size": 1578835
+        },
+        {
+          "filename": "EnchantmentDescriptions-Forge-1.19.2-13.0.20.jar",
+          "url": "https://edge.forgecdn.net/files/5015/22/EnchantmentDescriptions-Forge-1.19.2-13.0.20.jar",
+          "sha1": "d2b94b8d824bb3bbb1b28a015f84926b415ad49d",
+          "size": 65124
+        },
+        {
+          "filename": "endergetic-1.19.2-4.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/5146/370/endergetic-1.19.2-4.0.0.jar",
+          "sha1": "a41ab4bae916505aed615bb6fbb0ee303ded0cc6",
+          "size": 15306851
+        },
+        {
+          "filename": "endermanoverhaul-forge-1.19.2-0.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/5305/476/endermanoverhaul-forge-1.19.2-0.0.2.jar",
+          "sha1": "bdd03c5e11351b7105212ed6c4f75eae262aaf03",
+          "size": 1150864
+        },
+        {
+          "filename": "endertrigon-1.0.jar",
+          "url": "https://edge.forgecdn.net/files/3942/476/endertrigon-1.0.jar",
+          "sha1": "25c85b1ab02c7c1f8f9738fa7168b2b11c4c85fb",
+          "size": 95012
+        },
+        {
+          "filename": "endrem_forge-5.2.1-R-1.19.X.jar",
+          "url": "https://edge.forgecdn.net/files/4046/639/endrem_forge-5.2.1-R-1.19.X.jar",
+          "sha1": "8b2af67598b5808998230c0bc3c0bbe4b17127c1",
+          "size": 877722
+        },
+        {
+          "filename": "enhanced_boss_bars-1.19.2-1.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/5529/866/enhanced_boss_bars-1.19.2-1.0.0.jar",
+          "sha1": "683e68c3942da3fa5220203f95f8492cef055d04",
+          "size": 254287
+        },
+        {
+          "filename": "Enhanced_Celestials-forge-1.19.2-2.1.0.6.jar",
+          "url": "https://edge.forgecdn.net/files/4598/311/Enhanced_Celestials-forge-1.19.2-2.1.0.6.jar",
+          "sha1": "d017cd0113bc0427d73e381b93576ae093b78a18",
+          "size": 1624014
+        },
+        {
+          "filename": "EnhancedBlockEntities-Reforged-1.19.2-0.8.0.jar",
+          "url": "https://edge.forgecdn.net/files/4619/599/EnhancedBlockEntities-Reforged-1.19.2-0.8.0.jar",
+          "sha1": "19eb68510dda45f1424c02e41391404b5f669481",
+          "size": 354549
+        },
+        {
+          "filename": "EnigmaticLegacy-2.26.5.jar",
+          "url": "https://edge.forgecdn.net/files/4392/950/EnigmaticLegacy-2.26.5.jar",
+          "sha1": "f1467614274adddc5487349991cf7f3383118539",
+          "size": 6951700
+        },
+        {
+          "filename": "enlightend-5.0.12-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4853/84/enlightend-5.0.12-1.19.2.jar",
+          "sha1": "16e4a17a14d8821d664e92d691f5fcabab01df87",
+          "size": 16785660
+        },
+        {
+          "filename": "Entity_Collision_FPS_Fix-forge-1.19-2.0.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/3829/972/Entity_Collision_FPS_Fix-forge-1.19-2.0.0.0.jar",
+          "sha1": "ca1f804f071f6a4567922be16ab8fd65cf817b70",
+          "size": 10173
+        },
+        {
+          "filename": "entityculling-forge-1.6.1-mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4404/949/entityculling-forge-1.6.1-mc1.19.2.jar",
+          "sha1": "2b2545ea2e203b25d9b33be1e5b8aea38eaa90f2",
+          "size": 60289
+        },
+        {
+          "filename": "environmental-1.19.2-3.1.1.jar",
+          "url": "https://edge.forgecdn.net/files/5292/368/environmental-1.19.2-3.1.1.jar",
+          "sha1": "0745d8f61828d35505a7f964d6097feef0a81b70",
+          "size": 7329392
+        },
+        {
+          "filename": "epicsamurai-0.0.17-1.19.2-forge.jar",
+          "url": "https://edge.forgecdn.net/files/4911/51/epicsamurai-0.0.17-1.19.2-forge.jar",
+          "sha1": "63459b3500e9263ea6ffcb7f35c4d96ad8c3d4dc",
+          "size": 1229562
+        },
+        {
+          "filename": "etched-forge-2.3.2.jar",
+          "url": "https://edge.forgecdn.net/files/5060/422/etched-forge-2.3.2.jar",
+          "sha1": "88f4f2c7a3b761795bbd5d30b8855bb77fadbd3f",
+          "size": 640570
+        },
+        {
+          "filename": "EuphoriaPatcher-1.5.2-r5.4-forge.jar",
+          "url": "https://edge.forgecdn.net/files/6137/786/EuphoriaPatcher-1.5.2-r5.4-forge.jar",
+          "sha1": "96fa02e683fafcce060986073a5a9f94c0324fda",
+          "size": 727871
+        },
+        {
+          "filename": "everycomp-1.19.2-2.5.33.jar",
+          "url": "https://edge.forgecdn.net/files/6232/107/everycomp-1.19.2-2.5.33.jar",
+          "sha1": "7f5b9c894bcfe726e9bee0fc111bf28eccda36d3",
+          "size": 2303752
+        },
+        {
+          "filename": "expandability-7.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/3984/29/expandability-7.0.0.jar",
+          "sha1": "f37d5044e25abcedf9d4adb86793df942528772d",
+          "size": 76193
+        },
+        {
+          "filename": "Extra Xaero's Minimap Icons - 1.19.2 - 1.4.zip",
+          "url": "https://edge.forgecdn.net/files/5317/910/Extra%20Xaero%27s%20Minimap%20Icons%20-%201.19.2%20-%201.4.zip",
+          "sha1": "c86a015f06e815b5995ab1afd32bc6732b1047df",
+          "size": 457391,
+          "path": "resourcepacks/Extra Xaero's Minimap Icons - 1.19.2 - 1.4.zip"
+        },
+        {
+          "filename": "Fabulous Foliage.zip",
+          "url": "https://edge.forgecdn.net/files/4664/927/Fabulous%20Foliage.zip",
+          "sha1": "618c2a1dc4cc4a41940e19cce6e533273d21ba84",
+          "size": 368047,
+          "path": "resourcepacks/Fabulous Foliage.zip"
+        },
+        {
+          "filename": "fairylights-6.0.1-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4961/791/fairylights-6.0.1-1.19.2.jar",
+          "sha1": "836aa72613bffdf08bfa233a33a2d60ce3b1b37f",
+          "size": 818767
+        },
+        {
+          "filename": "Fallingleaves-1.19.1-1.3.1.jar",
+          "url": "https://edge.forgecdn.net/files/3965/374/Fallingleaves-1.19.1-1.3.1.jar",
+          "sha1": "a01e5f63d4def0940418c4cf0d4d8d0f78000102",
+          "size": 121907
+        },
+        {
+          "filename": "fancymenu_forge_2.14.9_MC_1.19-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4655/947/fancymenu_forge_2.14.9_MC_1.19-1.19.2.jar",
+          "sha1": "39e6836f769fd38f02f099aa7d2e4ad4e76f31a6",
+          "size": 1350173
+        },
+        {
+          "filename": "fantasyfurniture-1.19.2-6.7.0.jar",
+          "url": "https://edge.forgecdn.net/files/4183/177/fantasyfurniture-1.19.2-6.7.0.jar",
+          "sha1": "3a094d8a832e6a6ded9be5a89c7a6577a11b9477",
+          "size": 3215770
+        },
+        {
+          "filename": "FarmersDelight-1.19.2-1.2.4.jar",
+          "url": "https://edge.forgecdn.net/files/5051/241/FarmersDelight-1.19.2-1.2.4.jar",
+          "sha1": "7474aaf58f3001455db9426d4bf36bc3e80455f1",
+          "size": 2769499
+        },
+        {
+          "filename": "FarmersRespite-1.19-2.0.jar",
+          "url": "https://edge.forgecdn.net/files/4081/312/FarmersRespite-1.19-2.0.jar",
+          "sha1": "df109f2a9ea5a051a29cd3d393d1e098dc00a6fc",
+          "size": 493349
+        },
+        {
+          "filename": "farsighted-mobs-forge-1.1-1.19.jar",
+          "url": "https://edge.forgecdn.net/files/3984/897/farsighted-mobs-forge-1.1-1.19.jar",
+          "sha1": "027b771ee051b17322b8f1b84d3621c8803f52c7",
+          "size": 12170
+        },
+        {
+          "filename": "fastasyncworldsave-1.19.2-2.0.jar",
+          "url": "https://edge.forgecdn.net/files/5551/626/fastasyncworldsave-1.19.2-2.0.jar",
+          "sha1": "6c622308d25fd1e3448fcaf6de3d46819701a272",
+          "size": 11074
+        },
+        {
+          "filename": "FasterLadderClimbing-1.19.2-0.2.7.jar",
+          "url": "https://edge.forgecdn.net/files/4432/612/FasterLadderClimbing-1.19.2-0.2.7.jar",
+          "sha1": "2289d2cbdd31db6f5e536edd4c331bd0352a43c9",
+          "size": 7457
+        },
+        {
+          "filename": "fastpaintings-1.19-1.1.3.jar",
+          "url": "https://edge.forgecdn.net/files/5095/487/fastpaintings-1.19-1.1.3.jar",
+          "sha1": "2154f336a2524cc7944b808a9c605d5d9680eed1",
+          "size": 305895
+        },
+        {
+          "filename": "ferritecore-5.0.3-forge.jar",
+          "url": "https://edge.forgecdn.net/files/4117/906/ferritecore-5.0.3-forge.jar",
+          "sha1": "59245ec84ca1e3639237f5a04fe6f7556a9ec2bb",
+          "size": 116824
+        },
+        {
+          "filename": "findme-3.1.0-forge.jar",
+          "url": "https://edge.forgecdn.net/files/3910/1/findme-3.1.0-forge.jar",
+          "sha1": "02678b4ccf051b040d7e2021d153bf346399c226",
+          "size": 33463
+        },
+        {
+          "filename": "firstperson-forge-2.4.9-mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/6356/571/firstperson-forge-2.4.9-mc1.19.2.jar",
+          "sha1": "37ba045eca394c809df982198d0472a7779ae0d8",
+          "size": 127200
+        },
+        {
+          "filename": "fishingdangers 1.19.2-1.1.jar",
+          "url": "https://edge.forgecdn.net/files/4412/333/fishingdangers%201.19.2-1.1.jar",
+          "sha1": "7253b5411a7b86e9086046c8a21ebf8c9297d29f",
+          "size": 10706
+        },
+        {
+          "filename": "fishingoverhaul-1.19.2-1.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/4457/78/fishingoverhaul-1.19.2-1.0.0.jar",
+          "sha1": "f873367346937dbefded363f693067578069d0f8",
+          "size": 28897
+        },
+        {
+          "filename": "fishontheline-1.19.2-3.2.jar",
+          "url": "https://edge.forgecdn.net/files/4964/946/fishontheline-1.19.2-3.2.jar",
+          "sha1": "3121c67ea8d19ac6dc262c77cf6af4175eed2a20",
+          "size": 30160
+        },
+        {
+          "filename": "friendsandfoes-forge-mc1.19.2-3.0.9.jar",
+          "url": "https://edge.forgecdn.net/files/6354/628/friendsandfoes-forge-mc1.19.2-3.0.9.jar",
+          "sha1": "453082dd851f13f4e50fe724a55b49ad74e08389",
+          "size": 3607398
+        },
+        {
+          "filename": "ftb-chunks-forge-1902.4.7-build.420.jar",
+          "url": "https://edge.forgecdn.net/files/5710/631/ftb-chunks-forge-1902.4.7-build.420.jar",
+          "sha1": "a5394a4a7df1bf1aaced0760fe575e77532a97e2",
+          "size": 836309
+        },
+        {
+          "filename": "ftb-library-forge-1902.4.1-build.236.jar",
+          "url": "https://edge.forgecdn.net/files/4661/834/ftb-library-forge-1902.4.1-build.236.jar",
+          "sha1": "d9d39041049f74b3ed70e17cf8af1c9b252d9d91",
+          "size": 603296
+        },
+        {
+          "filename": "ftb-quests-forge-1902.5.10-build.497.jar",
+          "url": "https://edge.forgecdn.net/files/6130/546/ftb-quests-forge-1902.5.10-build.497.jar",
+          "sha1": "d9147ce97502a3768012a3323582ab7bd2b11550",
+          "size": 1093704
+        },
+        {
+          "filename": "ftb-teams-forge-1902.2.14-build.123.jar",
+          "url": "https://edge.forgecdn.net/files/4611/938/ftb-teams-forge-1902.2.14-build.123.jar",
+          "sha1": "9e754e9710a39f8888e51eebeef5328f645342af",
+          "size": 220052
+        },
+        {
+          "filename": "ftb-xmod-compat-forge-1.2.4.jar",
+          "url": "https://edge.forgecdn.net/files/5327/224/ftb-xmod-compat-forge-1.2.4.jar",
+          "sha1": "a3afc5feb1597a332a631f117f33aea8068e6611",
+          "size": 108928
+        },
+        {
+          "filename": "FTBQuestsOptimizer-forge-1.2.1-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5065/537/FTBQuestsOptimizer-forge-1.2.1-1.19.2.jar",
+          "sha1": "2af2fb5a77c0ffe8e19370616367439930b49fbc",
+          "size": 11303
+        },
+        {
+          "filename": "fullstackwatchdog-1.0.1+1.19.2-forge.jar",
+          "url": "https://edge.forgecdn.net/files/4488/549/fullstackwatchdog-1.0.1%2b1.19.2-forge.jar",
+          "sha1": "6f1e3a25c4a0258c2592fefb837f95a24eb3bfa0",
+          "size": 14539
+        },
+        {
+          "filename": "fusion-1.2.7b-forge-mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/6453/785/fusion-1.2.7b-forge-mc1.19.2.jar",
+          "sha1": "e353138538e1776b00c16db7b66d3164380d715b",
+          "size": 555339
+        },
+        {
+          "filename": "Galosphere-1.19.2-1.3.0-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/4574/834/Galosphere-1.19.2-1.3.0-Forge.jar",
+          "sha1": "a5436a98708d0d5f016aec162e0d3c7f60f280db",
+          "size": 12015269
+        },
+        {
+          "filename": "gamemenumodoption-mc1.19.2-1.18.1.jar",
+          "url": "https://edge.forgecdn.net/files/4657/763/gamemenumodoption-mc1.19.2-1.18.1.jar",
+          "sha1": "2c9be17d73d0c5b991237f49563926bccf269787",
+          "size": 71888
+        },
+        {
+          "filename": "GameStages-Forge-1.19.2-11.1.4.jar",
+          "url": "https://edge.forgecdn.net/files/4396/244/GameStages-Forge-1.19.2-11.1.4.jar",
+          "sha1": "89962c946ff5db7eeebb7aef78f76e9369e86700",
+          "size": 79311
+        },
+        {
+          "filename": "gardens-of-the-dead-forge-2.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/5448/982/gardens-of-the-dead-forge-2.0.2.jar",
+          "sha1": "3911180daf25553d55f9fe25edc4188da54584dd",
+          "size": 11820352
+        },
+        {
+          "filename": "geckolib-forge-1.19-3.1.40.jar",
+          "url": "https://edge.forgecdn.net/files/4407/241/geckolib-forge-1.19-3.1.40.jar",
+          "sha1": "92a447e19afe1a23a33219f5428b2198a58094f4",
+          "size": 2938383
+        },
+        {
+          "filename": "getittogetherdrops-forge-1.19.2-1.3.jar",
+          "url": "https://edge.forgecdn.net/files/4044/83/getittogetherdrops-forge-1.19.2-1.3.jar",
+          "sha1": "583ffd137507d8bdfab13dcbd230fb0ae620cf49",
+          "size": 7831
+        },
+        {
+          "filename": "glowingraidillagers-1.19.2-1.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/5034/770/glowingraidillagers-1.19.2-1.0.0.jar",
+          "sha1": "aadd750911b4bae8d915ec1833cc6a86c182d923",
+          "size": 22478
+        },
+        {
+          "filename": "gpumemleakfix-1.19.2-1.6.jar",
+          "url": "https://edge.forgecdn.net/files/4621/15/gpumemleakfix-1.19.2-1.6.jar",
+          "sha1": "fc5e249ac603a12b209213e016964bb58a0d577b",
+          "size": 8002
+        },
+        {
+          "filename": "guardvillagers-1.19.2-1.5.9.jar",
+          "url": "https://edge.forgecdn.net/files/5116/175/guardvillagers-1.19.2-1.5.9.jar",
+          "sha1": "8c8d70af3eb6a1b509de8cda06d2bdfdaa17a86a",
+          "size": 198235
+        },
+        {
+          "filename": "HarderMonsterBoats-1.19-41.1.1.1.jar",
+          "url": "https://edge.forgecdn.net/files/4654/21/HarderMonsterBoats-1.19-41.1.1.1.jar",
+          "sha1": "99a2a766c119173d11961e67bc02f24ccf52e220",
+          "size": 36448
+        },
+        {
+          "filename": "Highlighter-1.19.1-1.1.4.jar",
+          "url": "https://edge.forgecdn.net/files/3907/155/Highlighter-1.19.1-1.1.4.jar",
+          "sha1": "3551e5c46cfdc0e702adcf7fc91660f15df44c45",
+          "size": 26314
+        },
+        {
+          "filename": "Iceberg-1.19.2-forge-1.1.4.jar",
+          "url": "https://edge.forgecdn.net/files/4300/529/Iceberg-1.19.2-forge-1.1.4.jar",
+          "sha1": "d41dcb0a6397e889603b59a52a12f5d0ce7e675f",
+          "size": 109565
+        },
+        {
+          "filename": "Icon Journey 1.1.zip",
+          "url": "https://edge.forgecdn.net/files/5656/300/Icon%20Journey%201.1.zip",
+          "sha1": "0808ae731fec2c634720e82d0eb1b174202df19f",
+          "size": 17646309,
+          "path": "resourcepacks/Icon Journey 1.1.zip"
+        },
+        {
+          "filename": "Icon Xaero's 1.2 1.19.2.zip",
+          "url": "https://edge.forgecdn.net/files/5656/283/Icon%20Xaero%27s%201.2%201.19.2.zip",
+          "sha1": "ed2b4ca6004cb3270fd078495476ae458b814b40",
+          "size": 20781656,
+          "path": "resourcepacks/Icon Xaero's 1.2 1.19.2.zip"
+        },
+        {
+          "filename": "Icons Menu (Put Above Icons).zip",
+          "url": "https://edge.forgecdn.net/files/4605/651/Icons%20Menu%20(Put%20Above%20Icons).zip",
+          "sha1": "f4a7f876b6262fa9d7d48358392cb2ff4b9603fc",
+          "size": 4390,
+          "path": "resourcepacks/Icons Menu (Put Above Icons).zip"
+        },
+        {
+          "filename": "Icons v.1.9.1§7.zip",
+          "url": "https://edge.forgecdn.net/files/4750/760/Icons%20v.1.9.1%c2%a77.zip",
+          "sha1": "b3f631a1eac5528a827fc1afcc1b7345e060ebbd",
+          "size": 2880198,
+          "path": "resourcepacks/Icons v.1.9.1§7.zip"
+        },
+        {
+          "filename": "idas_forge-1.7.7+1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5186/84/idas_forge-1.7.7%2b1.19.2.jar",
+          "sha1": "f831d9a12a6059ece5916b9970a1b330c3012c3d",
+          "size": 8836881
+        },
+        {
+          "filename": "illageandspillage-1.19.2-1.2.4.jar",
+          "url": "https://edge.forgecdn.net/files/4263/798/illageandspillage-1.19.2-1.2.4.jar",
+          "sha1": "8db10bdb8962a6cf41c91d242101dba8ad2b2c49",
+          "size": 15094443
+        },
+        {
+          "filename": "ImmediatelyFast-Forge-1.4.0+1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/6312/263/ImmediatelyFast-Forge-1.4.0%2b1.19.2.jar",
+          "sha1": "8e7937679a532e80cf623ddbbc6c0fbf7cb1cb8f",
+          "size": 416424
+        },
+        {
+          "filename": "incontrol-1.19-7.1.18.jar",
+          "url": "https://edge.forgecdn.net/files/5821/51/incontrol-1.19-7.1.18.jar",
+          "sha1": "b51cdccb1956dad1baebf674469fdc9d216c3126",
+          "size": 226199
+        },
+        {
+          "filename": "Infernal Resources.zip",
+          "url": "https://edge.forgecdn.net/files/6977/721/Infernal%20Resources.zip",
+          "sha1": "8bfe7b593459badf847e3a7e3bc06438b372b296",
+          "size": 27230,
+          "path": "resourcepacks/Infernal Resources.zip"
+        },
+        {
+          "filename": "infernal-expansion-1.19.2-2.5.3.jar",
+          "url": "https://edge.forgecdn.net/files/4002/91/infernal-expansion-1.19.2-2.5.3.jar",
+          "sha1": "7a6fc94a0bfcac38cad02c9dc4616b92bdb55548",
+          "size": 14628084
+        },
+        {
+          "filename": "infusion_table-1.2.0.jar",
+          "url": "https://edge.forgecdn.net/files/4496/427/infusion_table-1.2.0.jar",
+          "sha1": "fe04292e95cf92ff8a43f36ba7c6fb55ce8cf6ab",
+          "size": 49347
+        },
+        {
+          "filename": "InsaneLib-1.7.5-mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4362/859/InsaneLib-1.7.5-mc1.19.2.jar",
+          "sha1": "3d2b3e3547ceae2d86baf6bd7d3296f8f12da286",
+          "size": 73851
+        },
+        {
+          "filename": "integrated_api_forge-1.2.8+1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5186/85/integrated_api_forge-1.2.8%2b1.19.2.jar",
+          "sha1": "45bedf20d87b83eb734025519dbe73d58f973f0b",
+          "size": 212087
+        },
+        {
+          "filename": "integrated_stronghold_forge-1.0.2+1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4558/183/integrated_stronghold_forge-1.0.2%2b1.19.2.jar",
+          "sha1": "e4e013d4deb78b6739da15d10a0b91aba5663bbe",
+          "size": 5027987
+        },
+        {
+          "filename": "item-filters-forge-1902.2.9-build.51.jar",
+          "url": "https://edge.forgecdn.net/files/4553/326/item-filters-forge-1902.2.9-build.51.jar",
+          "sha1": "22f8d4fd363b62d96e5b54c73b8dfbdef54a91a6",
+          "size": 115504
+        },
+        {
+          "filename": "ItemBorders-1.19.1-1.2.0.jar",
+          "url": "https://edge.forgecdn.net/files/3912/57/ItemBorders-1.19.1-1.2.0.jar",
+          "sha1": "151989d3b472a0da7ca4a1694f261ec22e93b0e7",
+          "size": 20834
+        },
+        {
+          "filename": "ItemStages-Forge-1.19.2-5.1.4.jar",
+          "url": "https://edge.forgecdn.net/files/5171/280/ItemStages-Forge-1.19.2-5.1.4.jar",
+          "sha1": "515584d8bfa2f1d85484660eae68a27e1a11e6a9",
+          "size": 30336
+        },
+        {
+          "filename": "iterpg-0.4.9.jar",
+          "url": "https://edge.forgecdn.net/files/4796/776/iterpg-0.4.9.jar",
+          "sha1": "331f64ba9779ab401f95b723c74dc7a9e2a8f4ac",
+          "size": 15562975
+        },
+        {
+          "filename": "Jade-1.19.1-forge-8.9.2.jar",
+          "url": "https://edge.forgecdn.net/files/4914/105/Jade-1.19.1-forge-8.9.2.jar",
+          "sha1": "2b56ea1b7ee6e20cea675427d8c87f115a44fcff",
+          "size": 429175
+        },
+        {
+          "filename": "JadeAddons-1.19.2-forge-3.6.0.jar",
+          "url": "https://edge.forgecdn.net/files/4850/581/JadeAddons-1.19.2-forge-3.6.0.jar",
+          "sha1": "ba22a39b955573dbfa0a402519a553c80dfbca46",
+          "size": 57891
+        },
+        {
+          "filename": "javd-forge-4.0.1-build.2+mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4035/527/javd-forge-4.0.1-build.2%2bmc1.19.2.jar",
+          "sha1": "b44e2de93a07192ab3b7ba1fa7290c9cd0b0a364",
+          "size": 40552
+        },
+        {
+          "filename": "jeed-1.19.2-2.1.4.jar",
+          "url": "https://edge.forgecdn.net/files/4599/99/jeed-1.19.2-2.1.4.jar",
+          "sha1": "4d893b3be13644df7299778d4bed933bfd293eae",
+          "size": 129447
+        },
+        {
+          "filename": "jei-1.19.2-forge-11.8.1.1034.jar",
+          "url": "https://edge.forgecdn.net/files/5846/858/jei-1.19.2-forge-11.8.1.1034.jar",
+          "sha1": "ede94c970271f169a89269cc3c10f88c22328052",
+          "size": 1177872
+        },
+        {
+          "filename": "JeiTweaker-forge-1.19.2-4.0.13.jar",
+          "url": "https://edge.forgecdn.net/files/4781/703/JeiTweaker-forge-1.19.2-4.0.13.jar",
+          "sha1": "64345aa8d7d73c8e62880fffbf07885d9111abba",
+          "size": 122484
+        },
+        {
+          "filename": "JourneyMap Extended Mob Icons v2.0.zip",
+          "url": "https://edge.forgecdn.net/files/5170/422/JourneyMap%20Extended%20Mob%20Icons%20v2.0.zip",
+          "sha1": "3728f18a6f53d6b4e8c023a77d3342b4e373a5ab",
+          "size": 65610,
+          "path": "resourcepacks/JourneyMap Extended Mob Icons v2.0.zip"
+        },
+        {
+          "filename": "JustEnoughProfessions-forge-1.19.2-2.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/4427/313/JustEnoughProfessions-forge-1.19.2-2.0.2.jar",
+          "sha1": "9e367c52189f188bec750e6596d29f81d1d8486e",
+          "size": 23472
+        },
+        {
+          "filename": "JustEnoughResources-1.19.2-1.2.3.243.jar",
+          "url": "https://edge.forgecdn.net/files/4862/430/JustEnoughResources-1.19.2-1.2.3.243.jar",
+          "sha1": "8521ebceae0d10c7deceab3eb4811333f2465d32",
+          "size": 276327
+        },
+        {
+          "filename": "keepcuriosinventory-1.19.2-0.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/4723/907/keepcuriosinventory-1.19.2-0.0.2.jar",
+          "sha1": "d62123a4991db7c41e6f8e36fb6b227c799be4ad",
+          "size": 7632
+        },
+        {
+          "filename": "Kiwi-1.19.2-forge-8.3.6.jar",
+          "url": "https://edge.forgecdn.net/files/5063/293/Kiwi-1.19.2-forge-8.3.6.jar",
+          "sha1": "ea4825bb1c84f000cb08ef91dd53d0c201a60560",
+          "size": 422898
+        },
+        {
+          "filename": "konkrete_forge_1.8.0_MC_1.19-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5028/409/konkrete_forge_1.8.0_MC_1.19-1.19.2.jar",
+          "sha1": "07104e7697fc0d9dc8bb2addb252cdaf1f7a973c",
+          "size": 628963
+        },
+        {
+          "filename": "kotlinforforge-3.12.0-all.jar",
+          "url": "https://edge.forgecdn.net/files/4513/187/kotlinforforge-3.12.0-all.jar",
+          "sha1": "cf09c1be6d8950e3f7551f02f141818aee5a3ec0",
+          "size": 7365976
+        },
+        {
+          "filename": "kubejs-forge-1902.6.2-build.73.jar",
+          "url": "https://edge.forgecdn.net/files/5408/722/kubejs-forge-1902.6.2-build.73.jar",
+          "sha1": "7977da0e43c0aafbcdfdb3dbcb06d2987a5f33af",
+          "size": 1562312
+        },
+        {
+          "filename": "L_Enders_Cataclysm-2.46-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/6470/672/L_Enders_Cataclysm-2.46-1.19.2.jar",
+          "sha1": "28153ed04652bddf7c4f13d9ca3e7237c494a2fc",
+          "size": 79899301
+        },
+        {
+          "filename": "lazydfu-1.19-1.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/4327/266/lazydfu-1.19-1.0.2.jar",
+          "sha1": "e120fbcc1704fcf0e661494771ba50ffe5a43b40",
+          "size": 14972
+        },
+        {
+          "filename": "LegendaryTooltips-1.19.2-forge-1.4.0.jar",
+          "url": "https://edge.forgecdn.net/files/4278/509/LegendaryTooltips-1.19.2-forge-1.4.0.jar",
+          "sha1": "45ab2024300470b58f72c652ef0e69994a7606bb",
+          "size": 54346
+        },
+        {
+          "filename": "letmesleep-1.19.4-1.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/5795/811/letmesleep-1.19.4-1.0.1.jar",
+          "sha1": "dd41d6c405f81d5a482feda247e3ed5a297b19cb",
+          "size": 235354
+        },
+        {
+          "filename": "letsdo-bakery-forge-1.0.6.jar",
+          "url": "https://edge.forgecdn.net/files/4780/907/letsdo-bakery-forge-1.0.6.jar",
+          "sha1": "3e6192bc35ceb492f953f4c195189e2d165877bd",
+          "size": 1649227
+        },
+        {
+          "filename": "LibX-1.19.2-4.2.8.jar",
+          "url": "https://edge.forgecdn.net/files/4052/778/LibX-1.19.2-4.2.8.jar",
+          "sha1": "801a437603db11c6acf70253356dd5057c814d45",
+          "size": 971666
+        },
+        {
+          "filename": "lionfishapi-1.8.jar",
+          "url": "https://edge.forgecdn.net/files/5314/835/lionfishapi-1.8.jar",
+          "sha1": "a558231433ff18d89b836a535625b85b47934657",
+          "size": 126780
+        },
+        {
+          "filename": "lootintegrations-1.19.2-4.0.jar",
+          "url": "https://edge.forgecdn.net/files/5981/98/lootintegrations-1.19.2-4.0.jar",
+          "sha1": "13401011457d4ab92ab6619857e2aa7c26df5530",
+          "size": 23168
+        },
+        {
+          "filename": "lootr-forge-1.19-0.4.29.76.jar",
+          "url": "https://edge.forgecdn.net/files/5976/195/lootr-forge-1.19-0.4.29.76.jar",
+          "sha1": "80b9f8ab72ac4c17303e74ef59bd0c5f7772304b",
+          "size": 463767
+        },
+        {
+          "filename": "LowOnFire_1.19.zip",
+          "url": "https://edge.forgecdn.net/files/3878/173/LowOnFire_1.19.zip",
+          "sha1": "d38b5e575f73ef5063a2c051516403ba6a43daff",
+          "size": 49397,
+          "path": "resourcepacks/LowOnFire_1.19.zip"
+        },
+        {
+          "filename": "lue_kie-1.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/5463/437/lue_kie-1.0.0.jar",
+          "sha1": "53894a0dbc2ed2f8f34f411bffcd529aad6d5a6e",
+          "size": 45790
+        },
+        {
+          "filename": "majrusz-library-forge-1.19.2-7.0.5-backport.1.jar",
+          "url": "https://edge.forgecdn.net/files/5177/143/majrusz-library-forge-1.19.2-7.0.5-backport.1.jar",
+          "sha1": "a09ce29b6b0c594f4ae212f02596287a68dcb28c",
+          "size": 432588
+        },
+        {
+          "filename": "majruszs-difficulty-forge-1.19.2-1.9.9-backport.1.jar",
+          "url": "https://edge.forgecdn.net/files/5177/117/majruszs-difficulty-forge-1.19.2-1.9.9-backport.1.jar",
+          "sha1": "a26d67a70494c71a2f9140092da7698b20372379",
+          "size": 751435
+        },
+        {
+          "filename": "MaxHealthFix-Forge-1.19.2-8.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/4658/481/MaxHealthFix-Forge-1.19.2-8.0.2.jar",
+          "sha1": "cfc1455a63dcb11ed5b1162c02a20f5454d5f0ab",
+          "size": 8580
+        },
+        {
+          "filename": "mdecore-1.19.2-19.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/4502/676/mdecore-1.19.2-19.0.0.jar",
+          "sha1": "2a4594f91f107daa904693c6819c2a461a24d039",
+          "size": 22913
+        },
+        {
+          "filename": "meetyourfight-1.19.2-1.3.4.jar",
+          "url": "https://edge.forgecdn.net/files/4645/104/meetyourfight-1.19.2-1.3.4.jar",
+          "sha1": "15d001267ef2519d5d7d109309327cff3eabc00b",
+          "size": 14948375
+        },
+        {
+          "filename": "memorysettings-1.19.2-5.4.jar",
+          "url": "https://edge.forgecdn.net/files/4765/726/memorysettings-1.19.2-5.4.jar",
+          "sha1": "53dd1f6a0df9518a134be49aacab015353cc7130",
+          "size": 20490
+        },
+        {
+          "filename": "MindfulDarkness-v4.0.9-1.19.2-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/4568/428/MindfulDarkness-v4.0.9-1.19.2-Forge.jar",
+          "sha1": "afa2ae787048ee7bcffc600515a5f33ddc97d9f7",
+          "size": 100659
+        },
+        {
+          "filename": "mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
+          "url": "https://edge.forgecdn.net/files/4579/551/mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
+          "sha1": "27fb2f7bc0be3aa57f49dc27a7270b975e4019d4",
+          "size": 5835
+        },
+        {
+          "filename": "Mobifier-forge-1.19-2.0.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/3825/740/Mobifier-forge-1.19-2.0.0.0.jar",
+          "sha1": "11f60ea40c1084c10d3e929b6e20994bb575ba70",
+          "size": 108457
+        },
+        {
+          "filename": "modernfix-forge-5.18.1+mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5803/581/modernfix-forge-5.18.1%2bmc1.19.2.jar",
+          "sha1": "532d4dcc05095d7aa2289e4758e5c8265c759c9b",
+          "size": 777028
+        },
+        {
+          "filename": "modpack-update-checker-1.19.2-forge-0.15.4.jar",
+          "url": "https://edge.forgecdn.net/files/6126/246/modpack-update-checker-1.19.2-forge-0.15.4.jar",
+          "sha1": "450c2b85b0bf204aafe516b4beaddca926907ee4",
+          "size": 420673
+        },
+        {
+          "filename": "moonlight-1.19.2-2.3.7-forge.jar",
+          "url": "https://edge.forgecdn.net/files/5567/102/moonlight-1.19.2-2.3.7-forge.jar",
+          "sha1": "088769d428106abf7c9de9bb8729b291cfa35392",
+          "size": 836351
+        },
+        {
+          "filename": "Moonsu Better Create GUI Tom's Simple Storage 1.3 1.19.x.zip",
+          "url": "https://edge.forgecdn.net/files/5198/249/Moonsu%20Better%20Create%20GUI%20Tom%27s%20Simple%20Storage%201.3%201.19.x.zip",
+          "sha1": "96a6096916712f0e8ad6e1a07487958987dffc2b",
+          "size": 168994,
+          "path": "resourcepacks/Moonsu Better Create GUI Tom's Simple Storage 1.3 1.19.x.zip"
+        },
+        {
+          "filename": "MouseTweaks-forge-mc1.19-2.23.jar",
+          "url": "https://edge.forgecdn.net/files/3871/353/MouseTweaks-forge-mc1.19-2.23.jar",
+          "sha1": "9d6e76a331c0598edb6293dc658af2d1672864b4",
+          "size": 75983
+        },
+        {
+          "filename": "mtiptdcf-1.0.1-all.jar",
+          "url": "https://edge.forgecdn.net/files/5735/133/mtiptdcf-1.0.1-all.jar",
+          "sha1": "1ac658f6155f9fe8b1d1d855c9213d744c8a8183",
+          "size": 211255
+        },
+        {
+          "filename": "MultiMine-1.19.2.5.jar",
+          "url": "https://edge.forgecdn.net/files/5733/848/MultiMine-1.19.2.5.jar",
+          "sha1": "2bcb29d4657c8d9d61102eea9123a51a5b059832",
+          "size": 37769
+        },
+        {
+          "filename": "musictriggers-1.19.2-6.3.1.jar",
+          "url": "https://edge.forgecdn.net/files/4836/499/musictriggers-1.19.2-6.3.1.jar",
+          "sha1": "10bc4d845c4558d2d1a81c6fcd53b5cd93d3821e",
+          "size": 34432471
+        },
+        {
+          "filename": "MutantMonsters-v4.0.6-1.19.2-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/4569/847/MutantMonsters-v4.0.6-1.19.2-Forge.jar",
+          "sha1": "007fa9422c96aad74b8b0edc5a4ee36fcc5fc324",
+          "size": 1337216
+        },
+        {
+          "filename": "mutantmore-1.19.2-early-access-1.0.7.jar",
+          "url": "https://edge.forgecdn.net/files/4447/467/mutantmore-1.19.2-early-access-1.0.7.jar",
+          "sha1": "367f9c798a5ea200e1c129022499129e68edb101",
+          "size": 18748190
+        },
+        {
+          "filename": "mutil-1.19.2-5.2.0.jar",
+          "url": "https://edge.forgecdn.net/files/4941/248/mutil-1.19.2-5.2.0.jar",
+          "sha1": "b575fd494ee6161917aaea028aa23b9695312186",
+          "size": 102669
+        },
+        {
+          "filename": "Nameless Trinkets-1.19.2-1.9.0.jar",
+          "url": "https://edge.forgecdn.net/files/6337/412/Nameless%20Trinkets-1.19.2-1.9.0.jar",
+          "sha1": "4eab7fd6d7c3ba8db7ee5f37d695842c1b9fc6a6",
+          "size": 392708
+        },
+        {
+          "filename": "naturalist-forge-4.0.3-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4847/8/naturalist-forge-4.0.3-1.19.2.jar",
+          "sha1": "ae25d47fe399a2560128d3c85ea1e4dba5be3c05",
+          "size": 3472590
+        },
+        {
+          "filename": "NaturesCompass-1.19.2-1.10.0-forge.jar",
+          "url": "https://edge.forgecdn.net/files/4118/390/NaturesCompass-1.19.2-1.10.0-forge.jar",
+          "sha1": "c63adf8ba9c4b9dfcd760a4ef844579e28367d53",
+          "size": 210023
+        },
+        {
+          "filename": "Necronomicon-Forge-1.4.2.jar",
+          "url": "https://edge.forgecdn.net/files/5091/310/Necronomicon-Forge-1.4.2.jar",
+          "sha1": "8d518d4e32054c86783f26ce024c774ef8fa1861",
+          "size": 45990
+        },
+        {
+          "filename": "NekosEnchantedBooks-1.19-2.0.3.jar",
+          "url": "https://edge.forgecdn.net/files/6180/640/NekosEnchantedBooks-1.19-2.0.3.jar",
+          "sha1": "67ccf8b5daf2671fecec35660ca42685a5aee769",
+          "size": 418757
+        },
+        {
+          "filename": "nerb-1.19.2-0.3-FORGE.jar",
+          "url": "https://edge.forgecdn.net/files/4744/473/nerb-1.19.2-0.3-FORGE.jar",
+          "sha1": "a9e64d7ccc0b2ad8f08764da22a59dc075269dbd",
+          "size": 10391
+        },
+        {
+          "filename": "Neruina-2.1.2-forge+1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5666/523/Neruina-2.1.2-forge%2b1.19.2.jar",
+          "sha1": "faca83a982635e66d9c59b55c526a886e74261fc",
+          "size": 3086244
+        },
+        {
+          "filename": "netherdepthsupgrade-3.1.4-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5150/558/netherdepthsupgrade-3.1.4-1.19.2.jar",
+          "sha1": "f61f1293de8ab88914f76a50fc8a3f7529190538",
+          "size": 643408
+        },
+        {
+          "filename": "netherportalfix-forge-1.19-10.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/4412/699/netherportalfix-forge-1.19-10.0.1.jar",
+          "sha1": "56f4cecf220a965d50dc96c26d0fb4563ecaf6f4",
+          "size": 216681
+        },
+        {
+          "filename": "NightConfigFixes-v4.0.7-1.19.2-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/4459/148/NightConfigFixes-v4.0.7-1.19.2-Forge.jar",
+          "sha1": "6d6c7baf076e39f38add5b96bc4c3a0fd1d8f679",
+          "size": 65655
+        },
+        {
+          "filename": "notenoughanimations-forge-1.9.3-mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/6356/201/notenoughanimations-forge-1.9.3-mc1.19.2.jar",
+          "sha1": "b53a8b63b35afd691d7d3c6f9d33c663c1bf54df",
+          "size": 453501
+        },
+        {
+          "filename": "obscure_api-15.jar",
+          "url": "https://edge.forgecdn.net/files/4522/272/obscure_api-15.jar",
+          "sha1": "b277e82a8dc80a58754b2b5388b57d6211cc10bf",
+          "size": 964152
+        },
+        {
+          "filename": "oculus-flywheel-compat-forge1.19.2+1.0.3b.jar",
+          "url": "https://edge.forgecdn.net/files/5787/430/oculus-flywheel-compat-forge1.19.2%2b1.0.3b.jar",
+          "sha1": "4c44a82a6f09a54b3533d05416f89ba82f235da9",
+          "size": 91029
+        },
+        {
+          "filename": "oculus-mc1.19.2-1.6.9a.jar",
+          "url": "https://edge.forgecdn.net/files/6020/961/oculus-mc1.19.2-1.6.9a.jar",
+          "sha1": "be4e14cb03ba5c931f8b73323ee8893ff5a2dd4b",
+          "size": 3503720
+        },
+        {
+          "filename": "oddorganisms-1.19.2-0.4.2.jar",
+          "url": "https://edge.forgecdn.net/files/4795/922/oddorganisms-1.19.2-0.4.2.jar",
+          "sha1": "10fac6e27c2dff1a667abf9a10eeb95bc90c5651",
+          "size": 223314
+        },
+        {
+          "filename": "OverflowingBars-v4.0.1-1.19.2-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/4515/133/OverflowingBars-v4.0.1-1.19.2-Forge.jar",
+          "sha1": "5da4ceed495cf6eb014393411f789e29e2a57d39",
+          "size": 69881
+        },
+        {
+          "filename": "Paraglider-1.19.2-1.7.0.5.jar",
+          "url": "https://edge.forgecdn.net/files/4478/230/Paraglider-1.19.2-1.7.0.5.jar",
+          "sha1": "557f5f04d3a326d1090d7bf8c231354564bfbe31",
+          "size": 382706
+        },
+        {
+          "filename": "ParCool-1.19.2-3.1.0.4-R.jar",
+          "url": "https://edge.forgecdn.net/files/4772/420/ParCool-1.19.2-3.1.0.4-R.jar",
+          "sha1": "99b76d3aa8d2f0f3290303ef207ffc14fdb70e83",
+          "size": 603987
+        },
+        {
+          "filename": "Patchouli-1.19.2-77.jar",
+          "url": "https://edge.forgecdn.net/files/4031/402/Patchouli-1.19.2-77.jar",
+          "sha1": "cfccf39046a5d375647c6b85d8191b76bbd5f9d6",
+          "size": 635370
+        },
+        {
+          "filename": "Paxi-1.19.2-Forge-3.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/4327/33/Paxi-1.19.2-Forge-3.0.1.jar",
+          "sha1": "2b2f2fb80ab85437a81253dc0149250dc1d84e2c",
+          "size": 96325
+        },
+        {
+          "filename": "Pehkui-3.8.2+1.19.2-forge.jar",
+          "url": "https://edge.forgecdn.net/files/5393/90/Pehkui-3.8.2%2b1.19.2-forge.jar",
+          "sha1": "481fb9d9256396796f4f349e94001741e6b6d475",
+          "size": 670815
+        },
+        {
+          "filename": "PerDimensionGameRules-1.19.2-forge-1.2.0.jar",
+          "url": "https://edge.forgecdn.net/files/4451/399/PerDimensionGameRules-1.19.2-forge-1.2.0.jar",
+          "sha1": "25dc3f1ce3e43b12182612b2ab5b1022d84bfdd5",
+          "size": 13464
+        },
+        {
+          "filename": "personality-1.19.2-3.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/4776/256/personality-1.19.2-3.0.2.jar",
+          "sha1": "37a8952499ad9a47f4ede6ab9c7c21bddff95d79",
+          "size": 292729
+        },
+        {
+          "filename": "phantasmic-1.19.2-0.2.5.jar",
+          "url": "https://edge.forgecdn.net/files/4718/296/phantasmic-1.19.2-0.2.5.jar",
+          "sha1": "e9a4adb82d1367f4ecfc5c481bf4cf00d3f958f0",
+          "size": 1222414
+        },
+        {
+          "filename": "PickUpNotifier-v4.2.4-1.19.2-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/4401/357/PickUpNotifier-v4.2.4-1.19.2-Forge.jar",
+          "sha1": "d539afd6713da2dcef897a8f872fb795b1eaf335",
+          "size": 94269
+        },
+        {
+          "filename": "Ping-1.19-1.9.1.jar",
+          "url": "https://edge.forgecdn.net/files/3865/500/Ping-1.19-1.9.1.jar",
+          "sha1": "da1d09ccc233b5461111f2bf976750d6d9fdd75a",
+          "size": 77562
+        },
+        {
+          "filename": "Placebo-1.19.2-7.4.1.jar",
+          "url": "https://edge.forgecdn.net/files/6274/259/Placebo-1.19.2-7.4.1.jar",
+          "sha1": "791c7a8eaf9a83b7efc21d58bd81f23b574db033",
+          "size": 249350
+        },
+        {
+          "filename": "Platform-forge-1.19.2-1.2.8.jar",
+          "url": "https://edge.forgecdn.net/files/6441/844/Platform-forge-1.19.2-1.2.8.jar",
+          "sha1": "d151ea1da94c3bc174fc5dc900252579bb914c10",
+          "size": 413356
+        },
+        {
+          "filename": "player-animation-lib-forge-1.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/4418/149/player-animation-lib-forge-1.0.2.jar",
+          "sha1": "e5f209aaab789eade2ef2c1a7dc37d6b20faa038",
+          "size": 181297
+        },
+        {
+          "filename": "pluto-mc1.19.2-0.0.9.jar",
+          "url": "https://edge.forgecdn.net/files/4469/704/pluto-mc1.19.2-0.0.9.jar",
+          "sha1": "b0e9b7817ebfae40a56da53129361822ee379974",
+          "size": 162595
+        },
+        {
+          "filename": "pollen-forge-2.1.0.jar",
+          "url": "https://edge.forgecdn.net/files/4685/982/pollen-forge-2.1.0.jar",
+          "sha1": "d64d0bc8bddd90f2d72f6397ffc675e7f5d218a2",
+          "size": 1622939
+        },
+        {
+          "filename": "polymorph-forge-0.46.6+1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/5222/155/polymorph-forge-0.46.6%2b1.19.2.jar",
+          "sha1": "80a182ed8a832c4df04620cedb3b8fda2757223c",
+          "size": 257315
+        },
+        {
+          "filename": "Prism-1.19.1-1.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/3993/293/Prism-1.19.1-1.0.2.jar",
+          "sha1": "082c48f00604c2d3c282fd69fbdae5cf594878d4",
+          "size": 51537
+        },
+        {
+          "filename": "PS Shielded - Xaero Frame 1.0.0.zip",
+          "url": "https://edge.forgecdn.net/files/5591/48/PS%20Shielded%20-%20Xaero%20Frame%201.0.0.zip",
+          "sha1": "15ceefc8f79cf1d2ce4599f928fa6aaf826662da",
+          "size": 352755,
+          "path": "resourcepacks/PS Shielded - Xaero Frame 1.0.0.zip"
+        },
+        {
+          "filename": "PuzzlesLib-v4.4.3-1.19.2-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/4600/775/PuzzlesLib-v4.4.3-1.19.2-Forge.jar",
+          "sha1": "ad531f214a2def16ff670cc94c0ea2ab40773b09",
+          "size": 395272
+        },
+        {
+          "filename": "Quark-3.4-418.jar",
+          "url": "https://edge.forgecdn.net/files/4812/6/Quark-3.4-418.jar",
+          "sha1": "3d4bf7bf166b3f30f74100e91d6760fbd93e660f",
+          "size": 15024651
+        },
+        {
+          "filename": "QuarkOddities-1.18.jar",
+          "url": "https://edge.forgecdn.net/files/3575/623/QuarkOddities-1.18.jar",
+          "sha1": "2d166f4d115360d6132a7bc277f4c6d47bb311ec",
+          "size": 1892
+        },
+        {
+          "filename": "queen_bee-3.0.3-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4607/192/queen_bee-3.0.3-1.19.2.jar",
+          "sha1": "d953f15adcac5452146b07690d2d3c7f6aad5943",
+          "size": 95463
+        },
+        {
+          "filename": "quickrightclick-1.19.2-1.4.jar",
+          "url": "https://edge.forgecdn.net/files/4976/232/quickrightclick-1.19.2-1.4.jar",
+          "sha1": "112ef076210a288304e93e071460cab9fe2d66ab",
+          "size": 81561
+        },
+        {
+          "filename": "quickstack-1.19.2-6.1.jar",
+          "url": "https://edge.forgecdn.net/files/4691/407/quickstack-1.19.2-6.1.jar",
+          "sha1": "6f373b199afb11ac6d5193e0b7cf9916d31ddaf2",
+          "size": 42596
+        },
+        {
+          "filename": "RecipeStages-4.0.0.7.jar",
+          "url": "https://edge.forgecdn.net/files/4642/197/RecipeStages-4.0.0.7.jar",
+          "sha1": "b875cae68016c91895d11c2b873e664ef98e96b2",
+          "size": 49047
+        },
+        {
+          "filename": "redirector-5.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/5224/17/redirector-5.0.0.jar",
+          "sha1": "0b246b2648a2e463f243852fdd1ef8c2931da19c",
+          "size": 5793
+        },
+        {
+          "filename": "reforgium-1.0.12a.jar",
+          "url": "https://edge.forgecdn.net/files/4505/759/reforgium-1.0.12a.jar",
+          "sha1": "24f47100c2c4b78c9ffb7e79535e4799c2e274ab",
+          "size": 258866
+        },
+        {
+          "filename": "resourcefulconfig-forge-1.19.2-1.0.20.jar",
+          "url": "https://edge.forgecdn.net/files/4444/198/resourcefulconfig-forge-1.19.2-1.0.20.jar",
+          "sha1": "cf00a655e73e9a7aeb8e3cc3d305c62d04cd8d0b",
+          "size": 133629
+        },
+        {
+          "filename": "resourcefullib-forge-1.19.2-1.1.24.jar",
+          "url": "https://edge.forgecdn.net/files/4477/753/resourcefullib-forge-1.19.2-1.1.24.jar",
+          "sha1": "24f99c9a70db499f868388964eeb119d74328977",
+          "size": 231039
+        },
+        {
+          "filename": "ResourcePackOverrides-v4.0.4-1.19.2-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/4438/897/ResourcePackOverrides-v4.0.4-1.19.2-Forge.jar",
+          "sha1": "83d9de57470d923f0b017133c201887264e4bd61",
+          "size": 85848
+        },
+        {
+          "filename": "rhino-forge-1902.2.3-build.284.jar",
+          "url": "https://edge.forgecdn.net/files/4953/345/rhino-forge-1902.2.3-build.284.jar",
+          "sha1": "964b684c5f94918be9fa2d4c77934dba8773c8cf",
+          "size": 1719247
+        },
+        {
+          "filename": "rottencreatures-forge-1.19.2-1.1.0.jar",
+          "url": "https://edge.forgecdn.net/files/6336/715/rottencreatures-forge-1.19.2-1.1.0.jar",
+          "sha1": "e6dbaf79d7c147e9553e62a61b8f07324d6f85b8",
+          "size": 2593971
+        },
+        {
+          "filename": "rubidium_extras-1.19.2_v1.4.3.jar",
+          "url": "https://edge.forgecdn.net/files/4632/201/rubidium_extras-1.19.2_v1.4.3.jar",
+          "sha1": "295d558c7efa08793e88cacce398bb5c4991a2b3",
+          "size": 63223
+        },
+        {
+          "filename": "screenshot_viewer-1.1.3-forge-mc1.19x.jar",
+          "url": "https://edge.forgecdn.net/files/4676/291/screenshot_viewer-1.1.3-forge-mc1.19x.jar",
+          "sha1": "efbb15bdc034021c547715568b71eadad424b920",
+          "size": 71256
+        },
+        {
+          "filename": "SereneShrubbery-1.19.2-1.5.0.jar",
+          "url": "https://edge.forgecdn.net/files/5521/369/SereneShrubbery-1.19.2-1.5.0.jar",
+          "sha1": "c72d1c18da9ba33119d75d7811b97add2cc7ac34",
+          "size": 309256
+        },
+        {
+          "filename": "ShieldExpansion-1.19.2-1.2.2.jar",
+          "url": "https://edge.forgecdn.net/files/6049/260/ShieldExpansion-1.19.2-1.2.2.jar",
+          "sha1": "ee481679990d4772bb4063c43e17728e36ee6fc5",
+          "size": 293482
+        },
+        {
+          "filename": "ShoulderSurfing-Forge-1.19.2-4.11.0.jar",
+          "url": "https://edge.forgecdn.net/files/6496/608/ShoulderSurfing-Forge-1.19.2-4.11.0.jar",
+          "sha1": "cde795ede26daf3cfb1ef2be809bbd261923ea25",
+          "size": 209833
+        },
+        {
+          "filename": "shutupexperimentalsettings-1.0.5.jar",
+          "url": "https://edge.forgecdn.net/files/3759/881/shutupexperimentalsettings-1.0.5.jar",
+          "sha1": "ad722f0e86a61310bdcea8975a106f0a4148ccb2",
+          "size": 4748
+        },
+        {
+          "filename": "Simple Grass Flowers v1.9.5.zip",
+          "url": "https://edge.forgecdn.net/files/6374/224/Simple%20Grass%20Flowers%20v1.9.5.zip",
+          "sha1": "2f430322ca2afdee2962180a23a577bbb7dea240",
+          "size": 187196,
+          "path": "resourcepacks/Simple Grass Flowers v1.9.5.zip"
+        },
+        {
+          "filename": "SimpleBackups-1.19.1-2.1.11.jar",
+          "url": "https://edge.forgecdn.net/files/5911/798/SimpleBackups-1.19.1-2.1.11.jar",
+          "sha1": "c12c5dfb70dab97291785af04e8382127d973f9f",
+          "size": 39504
+        },
+        {
+          "filename": "simplehats-forge-1.19.2-0.3.2.jar",
+          "url": "https://edge.forgecdn.net/files/5603/818/simplehats-forge-1.19.2-0.3.2.jar",
+          "sha1": "30d1645c812a2ceda440aa96e5193c2670c84a8e",
+          "size": 1421366
+        },
+        {
+          "filename": "SimpleRPC-Universal-3.3.3.jar",
+          "url": "https://edge.forgecdn.net/files/5700/73/SimpleRPC-Universal-3.3.3.jar",
+          "sha1": "4cb2036d2f29f62a6832d3d45e36485caf8532f2",
+          "size": 214943
+        },
+        {
+          "filename": "smoothchunk-1.19.2-3.5.jar",
+          "url": "https://edge.forgecdn.net/files/4876/162/smoothchunk-1.19.2-3.5.jar",
+          "sha1": "b23bfcd94216922bad216565e7a4b5db4bf1f550",
+          "size": 10917
+        },
+        {
+          "filename": "Some Mobs Icons 1.5.zip",
+          "url": "https://edge.forgecdn.net/files/4397/818/Some%20Mobs%20Icons%201.5.zip",
+          "sha1": "385b0bcb17f3237962d25a3fbb46e7c8c9f0c1d7",
+          "size": 211198,
+          "path": "resourcepacks/Some Mobs Icons 1.5.zip"
+        },
+        {
+          "filename": "sophisticatedbackpacks-1.19.2-3.20.2.1035.jar",
+          "url": "https://edge.forgecdn.net/files/5194/759/sophisticatedbackpacks-1.19.2-3.20.2.1035.jar",
+          "sha1": "ac5fe5f2146c6074e29fe859e5d755ef712e85e7",
+          "size": 835625
+        },
+        {
+          "filename": "sophisticatedcore-1.19.2-0.6.4.730.jar",
+          "url": "https://edge.forgecdn.net/files/5870/31/sophisticatedcore-1.19.2-0.6.4.730.jar",
+          "sha1": "68b4fb51e4aa7f2ea608f2c3adc4df84ba1dd9cc",
+          "size": 1059085
+        },
+        {
+          "filename": "spark-1.10.37-forge.jar",
+          "url": "https://edge.forgecdn.net/files/4505/309/spark-1.10.37-forge.jar",
+          "sha1": "74b6892e6df6f764c4b8833ad0547bfa46457be0",
+          "size": 2976410
+        },
+        {
+          "filename": "SpawnBalanceUtility-1.19-41.1.11.1.jar",
+          "url": "https://edge.forgecdn.net/files/4026/987/SpawnBalanceUtility-1.19-41.1.11.1.jar",
+          "sha1": "235c41662d67e5ecd552fe6c385fdbf029d942c1",
+          "size": 46537
+        },
+        {
+          "filename": "SpawnerControl-forge-1.19.[0-2]-v1.3.jar",
+          "url": "https://edge.forgecdn.net/files/6379/542/SpawnerControl-forge-1.19.%5b0-2%5d-v1.3.jar",
+          "sha1": "45532b43d758e4f4524e54a53c543506b3694dc6",
+          "size": 18423
+        },
+        {
+          "filename": "spiderstpo-1.19.2-2.0.4.jar",
+          "url": "https://edge.forgecdn.net/files/4139/288/spiderstpo-1.19.2-2.0.4.jar",
+          "sha1": "bace4be820fdccfee60621eb00b846e432686b10",
+          "size": 110190
+        },
+        {
+          "filename": "starlight-1.1.1+forge.cf5b10b.jar",
+          "url": "https://edge.forgecdn.net/files/3836/16/starlight-1.1.1%2bforge.cf5b10b.jar",
+          "sha1": "3d80b848c966841deeeba70305e38a29b7e3788d",
+          "size": 110720
+        },
+        {
+          "filename": "StorageDrawers-1.19.2-11.4.1.jar",
+          "url": "https://edge.forgecdn.net/files/5648/923/StorageDrawers-1.19.2-11.4.1.jar",
+          "sha1": "797afd3e5eba164a0a04807c9c2b72e2267a6846",
+          "size": 617641
+        },
+        {
+          "filename": "structure_gel-1.19.2-2.7.3.jar",
+          "url": "https://edge.forgecdn.net/files/4765/558/structure_gel-1.19.2-2.7.3.jar",
+          "sha1": "bb51b7f6c13ece3dd15f417b2442a9b435841b88",
+          "size": 706623
+        },
+        {
+          "filename": "structure_no_rotate-1.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/5622/42/structure_no_rotate-1.0.2.jar",
+          "sha1": "f1487fb8eef54954d3099206ef939f975beb67c9",
+          "size": 60739
+        },
+        {
+          "filename": "structurecompassfix-1.19.2-Forge-1.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/8021/693/structurecompassfix-1.19.2-Forge-1.0.2.jar",
+          "sha1": "0da36e15e8195b5b92fe223301820cdd74bd889c",
+          "size": 39337
+        },
+        {
+          "filename": "structureessentials-1.19.2-3.2.jar",
+          "url": "https://edge.forgecdn.net/files/4882/269/structureessentials-1.19.2-3.2.jar",
+          "sha1": "ce240c073a4d955eac64523bbed968dd28f5c0af",
+          "size": 28449
+        },
+        {
+          "filename": "SuperiorPlacement-1.19-1.0.jar",
+          "url": "https://edge.forgecdn.net/files/3823/879/SuperiorPlacement-1.19-1.0.jar",
+          "sha1": "dd7fa0c9c54486f3ba625367af22014d93328d82",
+          "size": 5571
+        },
+        {
+          "filename": "supermartijn642configlib-1.1.8-forge-mc1.19.jar",
+          "url": "https://edge.forgecdn.net/files/4715/406/supermartijn642configlib-1.1.8-forge-mc1.19.jar",
+          "sha1": "b63571ac8574efccc636b164512f110b756f5f1c",
+          "size": 206591
+        },
+        {
+          "filename": "supermartijn642corelib-1.1.18-forge-mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/6034/711/supermartijn642corelib-1.1.18-forge-mc1.19.2.jar",
+          "sha1": "05c586b43d0ff7cdd2cfff08e7324fc9dd6c1853",
+          "size": 502451
+        },
+        {
+          "filename": "supplementaries-1.19.2-2.4.20.jar",
+          "url": "https://edge.forgecdn.net/files/5152/602/supplementaries-1.19.2-2.4.20.jar",
+          "sha1": "7e5ccf0a29ea9c1c50fc1e44532796398acb076d",
+          "size": 14957348
+        },
+        {
+          "filename": "table_top_craft-1.19-3.1.2.jar",
+          "url": "https://edge.forgecdn.net/files/4616/489/table_top_craft-1.19-3.1.2.jar",
+          "sha1": "5ceddda20cb2275fb1e328dfea195d33b0e7cf95",
+          "size": 1517140
+        },
+        {
+          "filename": "tectonic-forge-1.19-2.3.5a.jar",
+          "url": "https://edge.forgecdn.net/files/5400/769/tectonic-forge-1.19-2.3.5a.jar",
+          "sha1": "e3f49e3f0f41f228605cd57d6be7029de59c7021",
+          "size": 309524
+        },
+        {
+          "filename": "tetra-1.19.2-5.6.0.jar",
+          "url": "https://edge.forgecdn.net/files/4941/337/tetra-1.19.2-5.6.0.jar",
+          "sha1": "1e046e88dcd5b043365c0e06d3286de8c844456c",
+          "size": 3542657
+        },
+        {
+          "filename": "tetranomicon-1.6.0-1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/6284/82/tetranomicon-1.6.0-1.19.2.jar",
+          "sha1": "1b4a231a16524629fbc1cc7a9226bd499fe82c0c",
+          "size": 701426
+        },
+        {
+          "filename": "tetrasdelight-1.19.2-2.jar",
+          "url": "https://edge.forgecdn.net/files/4851/492/tetrasdelight-1.19.2-2.jar",
+          "sha1": "fd80116de5d37d098f6cef3d6346c7ccc6554caf",
+          "size": 5105
+        },
+        {
+          "filename": "tetratic-combat-1.19-2.6.3.jar",
+          "url": "https://edge.forgecdn.net/files/4785/476/tetratic-combat-1.19-2.6.3.jar",
+          "sha1": "c8f6d907394903eee0e0acd7cba29161765e5efa",
+          "size": 25746
+        },
+        {
+          "filename": "textrues_embeddium_options-0.1.1+mc1.19.2.jar",
+          "url": "https://edge.forgecdn.net/files/4747/656/textrues_embeddium_options-0.1.1%2bmc1.19.2.jar",
+          "sha1": "aa67388e0a9d060065167f66eaf5634f61324e32",
+          "size": 132729
+        },
+        {
+          "filename": "The_Graveyard_2.5.3_(FORGE)_for_1.19.2..jar",
+          "url": "https://edge.forgecdn.net/files/4555/242/The_Graveyard_2.5.3_(FORGE)_for_1.19.2..jar",
+          "sha1": "b8a4e58d3b7918864a894f23045c3ddd6484fdaa",
+          "size": 13559075
+        },
+        {
+          "filename": "the-conjurer-1.19.2-1.1.5.jar",
+          "url": "https://edge.forgecdn.net/files/4069/328/the-conjurer-1.19.2-1.1.5.jar",
+          "sha1": "e43079099b3e1c046d3dc21011862e40e1110913",
+          "size": 5376784
+        },
+        {
+          "filename": "theimpossiblelibrary-1.19.2-0.3.1.jar",
+          "url": "https://edge.forgecdn.net/files/4742/104/theimpossiblelibrary-1.19.2-0.3.1.jar",
+          "sha1": "11a2c86f1f8b9f5fe76a31b6bd32d96556fa1c82",
+          "size": 267017
+        },
+        {
+          "filename": "thePredatorsBossPreview0.0.5.6.jar",
+          "url": "https://edge.forgecdn.net/files/4817/793/thePredatorsBossPreview0.0.5.6.jar",
+          "sha1": "6ca517b1bebc9d345ea03e89ce92e7715236c2ab",
+          "size": 1085035
+        },
+        {
+          "filename": "toms_storage-1.19-1.5.11.jar",
+          "url": "https://edge.forgecdn.net/files/5424/70/toms_storage-1.19-1.5.11.jar",
+          "sha1": "15bcd9a63ef48012a8c5319cb4b4a720c7c7619b",
+          "size": 513113
+        },
+        {
+          "filename": "ToolSwap-1.19.1-4.2.0.jar",
+          "url": "https://edge.forgecdn.net/files/3906/126/ToolSwap-1.19.1-4.2.0.jar",
+          "sha1": "bbad985f7e6b858028781e70aabc06d548dce5b1",
+          "size": 19513
+        },
+        {
+          "filename": "totw_additions-1.2.3-1.19.x-forge.jar",
+          "url": "https://edge.forgecdn.net/files/3857/363/totw_additions-1.2.3-1.19.x-forge.jar",
+          "sha1": "d5d72e6a28a4fae7fa05b6fa2fa0ab1cb19f6856",
+          "size": 712090
+        },
+        {
+          "filename": "totw_modded-forge-1.19.2-1.0.5.jar",
+          "url": "https://edge.forgecdn.net/files/5239/657/totw_modded-forge-1.19.2-1.0.5.jar",
+          "sha1": "c8cacd82293270e65f0b528f886c7d3b58279fd7",
+          "size": 288948
+        },
+        {
+          "filename": "Towns-and-Towers-v.1.10-_FORGE-1.19.2_.jar",
+          "url": "https://edge.forgecdn.net/files/4086/903/Towns-and-Towers-v.1.10-_FORGE-1.19.2_.jar",
+          "sha1": "cbf11b607e1096f45aa8018e2e306403b8e2db00",
+          "size": 2822026
+        },
+        {
+          "filename": "TradingPost-v4.2.0-1.19.2-Forge.jar",
+          "url": "https://edge.forgecdn.net/files/3945/828/TradingPost-v4.2.0-1.19.2-Forge.jar",
+          "sha1": "dfd11adb91524400d3d1f10ef30a391a14b27c87",
+          "size": 117767
+        },
+        {
+          "filename": "trashslot-forge-1.19.2-12.1.0.jar",
+          "url": "https://edge.forgecdn.net/files/4753/179/trashslot-forge-1.19.2-12.1.0.jar",
+          "sha1": "9eecd5c041c2ade04dd014ae081e4f36a4eaac99",
+          "size": 118131
+        },
+        {
+          "filename": "TravelersTitles-1.19.2-Forge-3.1.2.jar",
+          "url": "https://edge.forgecdn.net/files/4034/656/TravelersTitles-1.19.2-Forge-3.1.2.jar",
+          "sha1": "c31d85ddd4b3bebafff0d47862f913d06248c509",
+          "size": 219061
+        },
+        {
+          "filename": "treasuredistance-1.19.2-1.2.jar",
+          "url": "https://edge.forgecdn.net/files/4801/198/treasuredistance-1.19.2-1.2.jar",
+          "sha1": "c420cb6a3fa7085cc64d624a873943bff2203980",
+          "size": 6472
+        },
+        {
+          "filename": "TreeChop-1.19.2-forge-0.19.1.jar",
+          "url": "https://edge.forgecdn.net/files/5570/188/TreeChop-1.19.2-forge-0.19.1.jar",
+          "sha1": "421b7273ad29ab8207821bac030e75ea8ff693f9",
+          "size": 518133
+        },
+        {
+          "filename": "trulytreasures-forge-1.19-2.2.4.jar",
+          "url": "https://edge.forgecdn.net/files/4087/194/trulytreasures-forge-1.19-2.2.4.jar",
+          "sha1": "f8f0a0ca426b76a2a28e29ade2b33e3de71acd3a",
+          "size": 30990
+        },
+        {
+          "filename": "UnusualEnd1.19.2_V1.4.3.jar",
+          "url": "https://edge.forgecdn.net/files/4549/776/UnusualEnd1.19.2_V1.4.3.jar",
+          "sha1": "6415c45f821f3b7d363ee10ad3e263b6292a86d7",
+          "size": 4903370
+        },
+        {
+          "filename": "unusualfishmod-1.19.2-1.0.2.jar",
+          "url": "https://edge.forgecdn.net/files/4922/37/unusualfishmod-1.19.2-1.0.2.jar",
+          "sha1": "cd57809b9f0311900508b8f6db64bffdd864ea6d",
+          "size": 3296344
+        },
+        {
+          "filename": "unusualprehistory-1.4.2.jar",
+          "url": "https://edge.forgecdn.net/files/4798/854/unusualprehistory-1.4.2.jar",
+          "sha1": "04006b867a6e4e1a4b12b00ee74089ebc6ce29fc",
+          "size": 8835259
+        },
+        {
+          "filename": "upgrade_aquatic-1.19.2-5.1.0.jar",
+          "url": "https://edge.forgecdn.net/files/4777/515/upgrade_aquatic-1.19.2-5.1.0.jar",
+          "sha1": "0666a1e2ae0f21481f939ad9c9b36dbe8062feb3",
+          "size": 4929171
+        },
+        {
+          "filename": "v_slab_compat-1.19.2-1.9.jar",
+          "url": "https://edge.forgecdn.net/files/4808/86/v_slab_compat-1.19.2-1.9.jar",
+          "sha1": "f4f69a423fcf29ee3884c8139ffa29a6302379e4",
+          "size": 87546
+        },
+        {
+          "filename": "Vibrating Wither Fix.zip",
+          "url": "https://edge.forgecdn.net/files/4194/366/Vibrating%20Wither%20Fix.zip",
+          "sha1": "d464096c4b4f1d2425c5ec5cdb79aedff839a104",
+          "size": 2017,
+          "path": "resourcepacks/Vibrating Wither Fix.zip"
+        },
+        {
+          "filename": "Villager Comfort-1.19.2-1.0.0.jar",
+          "url": "https://edge.forgecdn.net/files/4062/997/Villager%20Comfort-1.19.2-1.0.0.jar",
+          "sha1": "a09eafd8abff6bf859396d777492388ebde4763d",
+          "size": 30583
+        },
+        {
+          "filename": "Visual Titles Legacy.zip",
+          "url": "https://edge.forgecdn.net/files/6063/502/Visual%20Titles%20Legacy.zip",
+          "sha1": "5155f962a9363454aad7365a9e6af364033f2f93",
+          "size": 977540,
+          "path": "resourcepacks/Visual Titles Legacy.zip"
+        },
+        {
+          "filename": "VoidFog-1.19.2-2.0.19.jar",
+          "url": "https://edge.forgecdn.net/files/3924/887/VoidFog-1.19.2-2.0.19.jar",
+          "sha1": "f89e06682d95d4935a1289bbb1955dcdff2e83f4",
+          "size": 6339
+        },
+        {
+          "filename": "waystones-forge-1.19.2-11.4.2.jar",
+          "url": "https://edge.forgecdn.net/files/4943/265/waystones-forge-1.19.2-11.4.2.jar",
+          "sha1": "a11236a564f8e34e358b8b6207086d030abcc6bb",
+          "size": 409113
+        },
+        {
+          "filename": "weakerspiderwebs-1.19.2-3.4.jar",
+          "url": "https://edge.forgecdn.net/files/4963/543/weakerspiderwebs-1.19.2-3.4.jar",
+          "sha1": "6a939c19e10fcd1433f7f35090ce3b2cff448982",
+          "size": 33510
+        },
+        {
+          "filename": "Weavers_Cosmetics_v1.14.jar",
+          "url": "https://edge.forgecdn.net/files/6081/846/Weavers_Cosmetics_v1.14.jar",
+          "sha1": "7e391b317caabbd5fee1de42cb511d800388a15d",
+          "size": 2056988
+        },
+        {
+          "filename": "whatareyouvotingfor2023-1.19.2-1.2.5.jar",
+          "url": "https://edge.forgecdn.net/files/5421/492/whatareyouvotingfor2023-1.19.2-1.2.5.jar",
+          "sha1": "f5d59bd0b86769e811eecf96c6852633d3ef2906",
+          "size": 277231
+        },
+        {
+          "filename": "WitherSkeletonTweaks-1.19.2-8.0.4.jar",
+          "url": "https://edge.forgecdn.net/files/4631/144/WitherSkeletonTweaks-1.19.2-8.0.4.jar",
+          "sha1": "030ac9cde23a15b7e07a5634c81045a90ebd631d",
+          "size": 28404
+        },
+        {
+          "filename": "witherstormmod-1.19.2-3.1.1.1.jar",
+          "url": "https://edge.forgecdn.net/files/4415/92/witherstormmod-1.19.2-3.1.1.1.jar",
+          "sha1": "ab40f5e49ff2719a7835c1193f5da3802baed1e6",
+          "size": 22089020
+        },
+        {
+          "filename": "woodworks-1.19.2-2.2.2.jar",
+          "url": "https://edge.forgecdn.net/files/4776/123/woodworks-1.19.2-2.2.2.jar",
+          "sha1": "0fb8b73164a7069579fbcd1dc6ac7ad4fd0121be",
+          "size": 851514
+        },
+        {
+          "filename": "Xaero's Extended Mob Icons v1.6.zip",
+          "url": "https://edge.forgecdn.net/files/5129/621/Xaero%27s%20Extended%20Mob%20Icons%20v1.6.zip",
+          "sha1": "8729fd04284eebba54b090f20412e078aded0751",
+          "size": 58407,
+          "path": "resourcepacks/Xaero's Extended Mob Icons v1.6.zip"
+        },
+        {
+          "filename": "XaeroPlus-2.26.7+forge-1.19.2-WM1.39.4-MM25.2.0.jar",
+          "url": "https://edge.forgecdn.net/files/6462/135/XaeroPlus-2.26.7%2bforge-1.19.2-WM1.39.4-MM25.2.0.jar",
+          "sha1": "f7d6dbeebaad82fa58b3bfd821bdb42fdccce0d7",
+          "size": 5038504
+        },
+        {
+          "filename": "Xaeros Naturalist Icons - 1.19-1.19.2.zip",
+          "url": "https://edge.forgecdn.net/files/5477/326/Xaeros%20Naturalist%20Icons%20-%201.19-1.19.2.zip",
+          "sha1": "0865287944210a0fb615ee06644a4a07dfcfc598",
+          "size": 607437,
+          "path": "resourcepacks/Xaeros Naturalist Icons - 1.19-1.19.2.zip"
+        },
+        {
+          "filename": "Xaeros_Minimap_25.2.0_Forge_1.19.1.jar",
+          "url": "https://edge.forgecdn.net/files/6306/136/Xaeros_Minimap_25.2.0_Forge_1.19.1.jar",
+          "sha1": "46ba0c6e7b4a21412c05017100765082cd469898",
+          "size": 1699425
+        },
+        {
+          "filename": "xaeros_waystones_compability-1.0.jar",
+          "url": "https://edge.forgecdn.net/files/4637/926/xaeros_waystones_compability-1.0.jar",
+          "sha1": "a5cee92bae3ebb6a95f01e972a71ca794bc60f98",
+          "size": 325574
+        },
+        {
+          "filename": "XaerosMinimap Aether Icons 1.1.0.zip",
+          "url": "https://edge.forgecdn.net/files/5304/144/XaerosMinimap%20Aether%20Icons%201.1.0.zip",
+          "sha1": "04b6ecc055a39c337c5a579d33638afa000ee123",
+          "size": 286086,
+          "path": "resourcepacks/XaerosMinimap Aether Icons 1.1.0.zip"
+        },
+        {
+          "filename": "XaerosWorldMap_1.39.4_Forge_1.19.1.jar",
+          "url": "https://edge.forgecdn.net/files/6212/629/XaerosWorldMap_1.39.4_Forge_1.19.1.jar",
+          "sha1": "97bd6716bf8d823cf2eda0fcf413f363551d6c43",
+          "size": 929966
+        },
+        {
+          "filename": "XaeroZoomout-Forge-1.19-1.1.0.jar",
+          "url": "https://edge.forgecdn.net/files/4998/57/XaeroZoomout-Forge-1.19-1.1.0.jar",
+          "sha1": "ce3ea6b85a079c60f08754288d280d063778c4ee",
+          "size": 32691
+        },
+        {
+          "filename": "yeetusexperimentus-1.0.1-build.2+mc1.19.1.jar",
+          "url": "https://edge.forgecdn.net/files/3909/789/yeetusexperimentus-1.0.1-build.2%2bmc1.19.1.jar",
+          "sha1": "18fb59ed7b6ff320b532e76e7f3607a70345dc02",
+          "size": 5869
+        },
+        {
+          "filename": "YOSBY-Forge-1.1.0.jar",
+          "url": "https://edge.forgecdn.net/files/4803/559/YOSBY-Forge-1.1.0.jar",
+          "sha1": "e7765999fd4bfacf569a085450e3fc0d947bfc6c",
+          "size": 7064
+        },
+        {
+          "filename": "YungsApi-1.19.2-Forge-3.8.10.jar",
+          "url": "https://edge.forgecdn.net/files/4876/62/YungsApi-1.19.2-Forge-3.8.10.jar",
+          "sha1": "bdfab32b5bba716dbd969b2a4c34d65c84537d8c",
+          "size": 293336
+        },
+        {
+          "filename": "YungsBetterDesertTemples-1.19.2-Forge-2.2.2.jar",
+          "url": "https://edge.forgecdn.net/files/4419/320/YungsBetterDesertTemples-1.19.2-Forge-2.2.2.jar",
+          "sha1": "3d36e940fa14e45dd1e722311ca6f40a75edef78",
+          "size": 986299
+        },
+        {
+          "filename": "YungsBetterDungeons-1.19.2-Forge-3.2.2.jar",
+          "url": "https://edge.forgecdn.net/files/4073/204/YungsBetterDungeons-1.19.2-Forge-3.2.2.jar",
+          "sha1": "19b6a62a62343d52c2855eabe3634ce44fb6f81e",
+          "size": 997998
+        },
+        {
+          "filename": "YungsBetterEndIsland-1.19.2-Forge-1.0.jar",
+          "url": "https://edge.forgecdn.net/files/4752/474/YungsBetterEndIsland-1.19.2-Forge-1.0.jar",
+          "sha1": "20d6905ae07c56b8da267b7c8fe126d7a8892693",
+          "size": 636740
+        },
+        {
+          "filename": "YungsBetterJungleTemples-1.19.2-Forge-1.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/4742/920/YungsBetterJungleTemples-1.19.2-Forge-1.0.1.jar",
+          "sha1": "a2ea85d9a87331bcf9c65fb35092a01d3a74d071",
+          "size": 1268117
+        },
+        {
+          "filename": "YungsBetterMineshafts-1.19.2-Forge-3.2.1.jar",
+          "url": "https://edge.forgecdn.net/files/4876/97/YungsBetterMineshafts-1.19.2-Forge-3.2.1.jar",
+          "sha1": "64ea80f99803f11a2329dadacddab2519bfd9dc3",
+          "size": 273478
+        },
+        {
+          "filename": "YungsBetterNetherFortresses-1.19.2-Forge-1.0.6.jar",
+          "url": "https://edge.forgecdn.net/files/4655/719/YungsBetterNetherFortresses-1.19.2-Forge-1.0.6.jar",
+          "sha1": "ff51cb8ccbe1d40054c2e2296a55db6af2d43108",
+          "size": 820449
+        },
+        {
+          "filename": "YungsBetterOceanMonuments-1.19.2-Forge-2.1.1.jar",
+          "url": "https://edge.forgecdn.net/files/4761/151/YungsBetterOceanMonuments-1.19.2-Forge-2.1.1.jar",
+          "sha1": "139e12939fbbf62024512917c9c07ce9aec9dc32",
+          "size": 1510053
+        },
+        {
+          "filename": "YungsBetterWitchHuts-1.19.2-Forge-2.1.0.jar",
+          "url": "https://edge.forgecdn.net/files/4031/226/YungsBetterWitchHuts-1.19.2-Forge-2.1.0.jar",
+          "sha1": "c1a2d60217e127d5cf6683bae6b3dfa5c1afa284",
+          "size": 241850
+        }
+      ]
+    }
+  ],
   "ftbPack": {
     "id": 134,
     "version": 100466,

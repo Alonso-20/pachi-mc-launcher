@@ -3,6 +3,7 @@ const $ = (id) => document.getElementById(id);
 const usernameInput = $('username');
 const usernameRow = $('username-row');
 const ramSelect = $('ram');
+const packSelect = $('pack');
 const btnPlay = $('play-offline');
 const btnLogin = $('login-ms');
 const btnLogout = $('logout');
@@ -12,6 +13,8 @@ const progressBar = $('progress-bar');
 const statusText = $('status-text');
 
 let blocked = false;
+let packs = [];
+let globalMessage = '';
 let account = null;      // sesión de Microsoft activa
 let allowOffline = true;
 
@@ -54,6 +57,25 @@ function renderAccount() {
   }
 }
 
+/** Pinta cabecera y chips del pack seleccionado. */
+function renderPack() {
+  const p = packs.find((x) => x.id === packSelect.value) || packs[0];
+  if (!p) return;
+
+  $('server-name').textContent = p.serverName || p.name;
+  $('motd').textContent = p.message || globalMessage;
+
+  const chip = (id, text) => {
+    $(id).textContent = text || '';
+    $(id).classList.toggle('hidden', !text);
+  };
+  chip('chip-pack', p.name);
+  chip('chip-version', p.mcVersion && `Minecraft ${p.mcVersion}`);
+  chip('chip-loader', p.loader && p.loader.charAt(0).toUpperCase() + p.loader.slice(1));
+  chip('chip-mods', p.mods ? `${p.mods} mods` : '');
+  chip('chip-ip', p.serverIp);
+}
+
 function showBanner(text) {
   $('banner-text').textContent = text;
   $('banner').classList.remove('hidden');
@@ -89,20 +111,22 @@ async function init() {
   }
 
   const m = res.manifest;
-  const game = m.game || {};
-  $('server-name').textContent = (m.server && m.server.name) || 'Servidor de Minecraft';
-  $('motd').textContent = (m.launcher && m.launcher.message) || '';
+  packs = m.packs || [];
+  globalMessage = (m.launcher && m.launcher.message) || '';
 
-  const chip = (id, text) => {
-    $(id).textContent = text;
-    $(id).classList.remove('hidden');
-  };
-  if (m.ftbPack && m.ftbPack.name) chip('chip-pack', m.ftbPack.name);
-  if (game.mcVersion) chip('chip-version', `Minecraft ${game.mcVersion}`);
-  if (game.loader) chip('chip-loader', game.loader.charAt(0).toUpperCase() + game.loader.slice(1));
-  else if (m.ftbPack) chip('chip-loader', 'Modpack FTB');
-  if ((m.mods || []).length) chip('chip-mods', `+${m.mods.length} mods extra`);
-  if (m.server && m.server.ip) chip('chip-ip', m.server.ip);
+  packSelect.innerHTML = '';
+  for (const p of packs) {
+    const opt = document.createElement('option');
+    opt.value = p.id;
+    opt.textContent = p.name;
+    packSelect.appendChild(opt);
+  }
+  if (res.settings && res.settings.packId && packs.some((p) => p.id === res.settings.packId)) {
+    packSelect.value = res.settings.packId;
+  }
+  // Con un solo pack el desplegable sobra
+  $('pack-row').classList.toggle('hidden', packs.length < 2);
+  renderPack();
 
   // Servidor solo premium: sin modo offline
   allowOffline = !(m.launcher && m.launcher.allowOffline === false);
@@ -128,10 +152,12 @@ async function play() {
     mode: account ? 'microsoft' : 'offline',
     username: usernameInput.value,
     ramGB: Number(ramSelect.value),
+    packId: packSelect.value,
   });
   if (!res.ok && res.error) setStatus(res.error, null, 'error');
 }
 
+packSelect.addEventListener('change', renderPack);
 btnPlay.addEventListener('click', play);
 
 btnLogin.addEventListener('click', async () => {

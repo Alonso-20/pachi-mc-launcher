@@ -93,7 +93,7 @@ async function setupFabricLike(id, mc, loaderVersion, rootPath, onStatus) {
 
 /**
  * Forge y NeoForge: se descarga el instalador oficial y se ejecuta con
- * --install-client (o --installClient en Forge antiguo), que genera la carpeta
+ * su flag de instalacion de cliente, que genera la carpeta
  * versions/<loader>/ con su JSON y parchea el cliente.
  */
 async function setupForgeLike(id, mc, loaderVersion, rootPath, javaPath, onStatus) {
@@ -123,16 +123,18 @@ async function setupForgeLike(id, mc, loaderVersion, rootPath, javaPath, onStatu
 
   onStatus(`Instalando ${id} ${loaderVersion} (esto tarda un poco la primera vez)...`, null);
   const javaExe = javaPath.replace(/javaw\.exe$/i, 'java.exe');
-  await runInstaller(javaExe, installer, rootPath);
+  // Ojo: NeoForge usa --install-client y Forge --installClient. No son
+  // intercambiables: con el flag equivocado el instalador no instala nada.
+  await runInstaller(javaExe, installer, rootPath, isNeo ? '--install-client' : '--installClient');
 
   const created = findLoaderVersionDir(rootPath, loaderVersion);
   if (!created) throw new Error(`El instalador de ${id} ${loaderVersion} terminó pero no generó la versión.`);
   return created;
 }
 
-function runInstaller(javaExe, installerJar, rootPath) {
+function runInstaller(javaExe, installerJar, rootPath, flag) {
   return new Promise((resolve, reject) => {
-    const child = spawn(javaExe, ['-jar', installerJar, '--install-client', rootPath], {
+    const child = spawn(javaExe, ['-jar', installerJar, flag, rootPath], {
       cwd: rootPath,
       windowsHide: true,
     });

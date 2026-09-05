@@ -1,6 +1,22 @@
 const { compareVersions } = require('./util');
 
 /**
+ * Packs jugables del manifest. Si no hay `packs`, la raiz es el pack unico
+ * (formato antiguo). Cada pack: { id, name, dir?, game?, ftbPack?, packZip?,
+ * mods?, server?, syncMode? }
+ */
+function getPacks(manifest) {
+  const raw = Array.isArray(manifest.packs) && manifest.packs.length ? manifest.packs : [manifest];
+  return raw
+    .filter((p) => (p.ftbPack && p.ftbPack.id) || (p.game && p.game.mcVersion))
+    .map((p, i) => ({
+      ...p,
+      id: p.id || `pack${i}`,
+      name: p.name || (p.server && p.server.name) || `Pack ${i + 1}`,
+    }));
+}
+
+/**
  * Descarga y valida el manifest remoto (el archivo que el admin edita en GitHub).
  */
 async function fetchManifest(url) {
@@ -12,10 +28,7 @@ async function fetchManifest(url) {
     const res = await fetch(bust, { signal: controller.signal, cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const manifest = await res.json();
-    const hasPack = manifest.ftbPack && manifest.ftbPack.id;
-    if (!hasPack && !(manifest.game && manifest.game.mcVersion)) {
-      throw new Error('El manifest necesita "ftbPack" o "game.mcVersion"');
-    }
+    if (!getPacks(manifest).length) throw new Error('El manifest no define ningun pack jugable');
     return manifest;
   } finally {
     clearTimeout(timer);
@@ -67,4 +80,4 @@ function checkAccess(manifest, launcherVersion, username) {
   return { ok: true };
 }
 
-module.exports = { fetchManifest, checkAccess };
+module.exports = { fetchManifest, checkAccess, getPacks };
