@@ -1,103 +1,146 @@
 # Guía del administrador
 
-Este `manifest.json` es el **panel de control remoto** de tu launcher. Lo subes a un
-repositorio público de GitHub y cada vez que un jugador abre el launcher o pulsa
-"Jugar", el launcher lo descarga fresco. Editas el JSON → todos los jugadores
-reciben el cambio al instante. **No hace falta recompilar ni redistribuir nada.**
+`manifest.json` es el **panel de control remoto** del launcher. Vive en este repo
+de GitHub y el launcher lo descarga fresco cada vez que un jugador pulsa "Jugar".
+Editas el JSON → todos reciben el cambio al instante. **Nunca hay que recompilar
+ni volver a repartir el instalador.**
 
-## Configuración inicial (una sola vez)
+URL que usa el launcher (ya configurada en `src/config.js`):
 
-1. Crea un repositorio público en GitHub (ej. `mi-server-config`).
-2. Sube este `manifest.json` a la raíz del repo.
-3. Copia la URL **raw** del archivo:
-   `https://raw.githubusercontent.com/TU_USUARIO/mi-server-config/main/manifest.json`
-4. Pégala en `src/config.js` del launcher (campo `MANIFEST_URL`).
-5. Compila el launcher (`npm run dist`) y reparte el instalador `dist/Mi Launcher Setup X.X.X.exe`.
+```
+https://raw.githubusercontent.com/Alonso-20/pachi-mc-launcher/main/remote/manifest.json
+```
 
-Para editar el manifest después: entra al archivo en GitHub → botón del lápiz →
-edita → "Commit changes". Listo, ya está actualizado para todos.
+Para editarlo: abre el archivo en GitHub → icono del lápiz → edita → "Commit changes".
 
-## Qué controla cada campo
+---
 
-### `launcher` — control de acceso
+## El modpack (FTB Skies 2: Aero)
+
+```json
+"ftbPack": { "id": 134, "version": 100466, "name": "FTB Skies 2: Aero 1.6.1" }
+```
+
+Con esas dos cifras el launcher descarga de FTB la lista completa del pack
+(11.288 archivos: los 473 mods, configs, KubeJS, datapacks y shaderpacks) y la
+instala en la PC del jugador, exactamente igual que hace la app oficial de FTB.
+También toma de ahí la versión de Minecraft (1.21.1) y la de NeoForge (21.1.248),
+así que no tienes que escribirlas a mano.
+
+`name` es solo el texto que se muestra en el launcher.
+
+### Actualizar el modpack
+
+1. Actualiza **primero el servidor** a la versión nueva (con el instalador de FTB).
+2. Averigua el `versionId` nuevo:
+   ```bash
+   node tools/ftb-versions.js
+   ```
+   Te lista las últimas versiones con su número (ej. `100466 = 1.6.1`).
+3. Cambia `version` en el manifest y súbelo a GitHub.
+
+En el siguiente arranque, cada jugador recibe los mods nuevos, se le actualizan
+los cambiados y **se le borran los que el pack quitó**. No tienen que hacer nada.
+
+> Importante: el servidor y el manifest deben apuntar a la **misma versión**. Si
+> el server va en 1.6.1 y el manifest en 1.6.0, los jugadores serán rechazados
+> por diferencia de mods.
+
+### Añadir mods extra al pack
+
+Cualquier mod que no venga en el pack de FTB (por ejemplo Simple Voice Chat) se
+agrega en `mods`, y se instala **encima** del modpack:
+
+```json
+"mods": [
+  {
+    "filename": "voicechat-neoforge-1.21.1-2.5.26.jar",
+    "url": "https://cdn.modrinth.com/data/9eGKb6K1/versions/xxxx/voicechat-neoforge-1.21.1-2.5.26.jar",
+    "sha1": "opcional pero recomendado"
+  }
+]
+```
+
+Las URLs se sacan de Modrinth (página del mod → Versions → clic derecho en
+Download → copiar enlace). Acuérdate de instalar también ese mod en el servidor
+si es de los que lo requieren.
+
+---
+
+## Control de acceso (`launcher`)
 
 | Campo | Efecto |
 |---|---|
 | `enabled: false` | Apaga el launcher para **todos** (mantenimiento). |
-| `minVersion` | Cualquier launcher con versión menor queda **obsoleto**: no puede jugar y ve un botón para descargar la nueva versión (`updateUrl`). |
-| `updateUrl` | Link de descarga que se muestra a quien tiene el launcher obsoleto. |
-| `blockedUsers` | Lista negra: `["nombre1", "nombre2"]`. Esos usuarios no pueden jugar (no distingue mayúsculas). |
-| `allowedUsers` | Lista blanca. Si es `null`, juega cualquiera. Si es una lista `["amigo1", "amigo2"]`, **solo** ellos pueden jugar. |
-| `message` | Mensaje/noticias que se muestra en la pantalla principal del launcher. |
+| `minVersion` | Los launchers con versión menor quedan **obsoletos**: no pueden jugar y ven un botón de descarga (`updateUrl`). |
+| `updateUrl` | Link al instalador nuevo. |
+| `blockedUsers` | Lista negra: `["fulano"]`. No distingue mayúsculas. |
+| `allowedUsers` | Lista blanca. `null` = juega cualquiera; una lista = **solo** esos. |
+| `allowOffline` | `false` oculta el modo no premium (útil si el server tiene `online-mode=true`). |
+| `message` | Aviso que se muestra en la pantalla principal. |
 
-**Dejar obsoleto el instalador para ciertas personas:** ponlas en `blockedUsers`.
-**Dejar obsoletas TODAS las copias viejas del launcher:** sube `minVersion` (y sube
-el nuevo instalador a `updateUrl`, por ejemplo un release de GitHub).
+**Dejar obsoleto el instalador para ciertas personas** → `blockedUsers`.
+**Dejar obsoletas todas las copias viejas** → sube `minVersion`.
 
-### `game` — versión y loader
+> Ojo: esto es control del *launcher*, no del servidor. A alguien decidido no le
+> impide conectarse con otro cliente. La barrera de verdad es la whitelist del
+> servidor (`whitelist.json` / `/whitelist add <jugador>`), sobre todo si usas
+> `online-mode=false`. Usa las dos cosas juntas.
 
-```json
-"game": { "mcVersion": "1.20.1", "loader": "fabric" }
-```
+---
 
-`loader` puede ser: `vanilla`, `fabric`, `forge`, `neoforge` o `quilt`.
-El launcher descarga e instala el loader automáticamente. Puedes cambiar de
-versión o de loader cuando quieras; los jugadores lo reciben en el siguiente lanzamiento.
-
-### `server` — conexión automática
+## Servidor (`server`)
 
 ```json
-"server": { "name": "Mi Server", "ip": "play.miserver.com", "port": 25565, "autoJoin": true }
+"server": { "name": "Aero", "ip": "xxxxx.gl.at.ply.gg", "port": 25565, "autoJoin": true }
 ```
 
-Con `autoJoin: true` el juego se conecta solo al server al abrirse. El server
-también se añade a la lista de multijugador del jugador.
+Con `autoJoin: true` el juego se conecta solo al entrar. El server además se
+añade a la lista de multijugador del jugador.
 
-### `mods` — la lista de mods
+Como usas **playit.gg**, pon aquí la dirección que te da tu panel de playit
+(algo como `xxxxx.gl.at.ply.gg`, y el puerto que te asigne). Si el túnel cambia
+de dirección, actualiza este campo en GitHub y todos se reconectan al nuevo sin
+tocar nada.
 
-```json
-{ "filename": "sodium.jar", "url": "https://...", "sha1": "abc123..." }
-```
+---
 
-- **Añadir un mod**: agrega una entrada. Se descargará a todos.
-- **Quitar un mod**: borra la entrada. Con `syncMode: "strict"` (por defecto) el
-  launcher también lo **borra** de las PCs de los jugadores.
-- **Actualizar un mod**: cambia `filename` y `url` por los de la versión nueva.
-- `sha1` es opcional pero recomendado: verifica que la descarga no esté corrupta y
-  detecta mods modificados. Para calcularlo en PowerShell:
-  `Get-FileHash mod.jar -Algorithm SHA1`
-- `syncMode: "additive"` permite que los jugadores añadan sus propios mods
-  (el launcher no borra jars desconocidos).
+## Sincronización (`syncMode`)
 
-### ¿De dónde saco las URLs de los mods?
+- `"strict"` (actual): todos juegan con exactamente los mismos mods. Si alguien
+  mete un `.jar` a mano en la carpeta del launcher, se le borra en el siguiente
+  arranque.
+- `"additive"`: permite mods personales (minimapa, shaders...). Sigue instalando
+  y actualizando el pack, pero no borra jars desconocidos.
 
-- **Modrinth** (recomendado): en la página del mod → Versions → botón derecho en
-  "Download" → copiar enlace. Son enlaces directos del CDN, estables y rápidos.
-- **CurseForge**: usa el enlace directo del archivo (termina en `.jar`).
-- **Mods propios / configs**: súbelos como *release* en tu mismo repo de GitHub y
-  usa la URL del asset.
+En ambos casos el launcher **solo** toca lo que él mismo instaló: los mundos,
+capturas y opciones del jugador nunca se borran, y su `.minecraft` normal ni se
+abre.
+
+---
 
 ## Recetas rápidas
 
-**Banear a un jugador:**
+**Banear a alguien:**
 ```json
 "blockedUsers": ["jugadorMalo"]
 ```
 
-**Solo mis 5 amigos pueden entrar:**
+**Solo mis amigos:**
 ```json
-"allowedUsers": ["amigo1", "amigo2", "amigo3", "amigo4", "amigo5"]
+"allowedUsers": ["amigo1", "amigo2", "amigo3"]
 ```
 
-**Forzar a todos a actualizar el launcher:**
-```json
-"minVersion": "1.1.0",
-"updateUrl": "https://github.com/TU_USUARIO/TU_REPO/releases/latest"
-```
-(y en el launcher nuevo, sube `version` en `package.json` a `1.1.0` antes de compilar)
-
-**Mantenimiento del server:**
+**Mantenimiento:**
 ```json
 "enabled": false,
-"disabledMessage": "Mantenimiento hasta las 6pm. ¡Volvemos pronto!"
+"disabledMessage": "Actualizando el modpack. Volvemos en 1 hora."
 ```
+
+**Forzar actualización del launcher:**
+```json
+"minVersion": "1.1.0",
+"updateUrl": "https://github.com/Alonso-20/pachi-mc-launcher/releases/latest"
+```
+(sube antes `version` en `package.json` a 1.1.0, compila con `npm run dist` y
+publica el .exe en Releases)

@@ -2,36 +2,46 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { pipeline } = require('stream/promises');
-const { Readable } = require('stream');
+const { Readable, Transform } = require('stream');
 
 /**
  * Descarga un archivo por HTTP(S) siguiendo redirecciones.
- * onProgress recibe un número 0-100 (o null si no se conoce el tamaño).
+ * Acepta URLs alternativas (mirrors) y reintentos.
+ * onProgress recibe bytes descargados en este chunk.
  */
-async function downloadFile(url, dest, onProgress) {
-  const res = await fetch(url, { redirect: 'follow' });
-  if (!res.ok) throw new Error(`Error HTTP ${res.status} al descargar ${url}`);
+async function downloadFile(url, dest, onChunk, mirrors = [], retries = 3) {
+  const urls = [url, ...(mirrors || [])].filter(Boolean);
+  let lastErr;
 
-  fs.mkdirSync(path.dirname(dest), { recursive: true });
-  const tmp = dest + '.part';
-  const total = Number(res.headers.get('content-length')) || 0;
-  let received = 0;
+  for (let attempt = 0; attempt < retries; attempt++) {
+    const target = urls[Math.min(attempt, urls.length - 1)];
+    try {
+      const res = await fetch(target, { redirect: 'follow' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-  const counter = new (require('stream').Transform)({
-    transform(chunk, _enc, cb) {
-      received += chunk.length;
-      if (onProgress) onProgress(total ? Math.round((received / total) * 100) : null);
-      cb(null, chunk);
-    },
-  });
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
+      const tmp = dest + '.part';
+      const counter = new Transform({
+        transform(chunk, _enc, cb) {
+          if (onChunk) onChunk(chunk.length);
+          cb(null, chunk);
+        },
+      });
 
-  try {
-    await pipeline(Readable.fromWeb(res.body), counter, fs.createWriteStream(tmp));
-    fs.renameSync(tmp, dest);
-  } catch (err) {
-    try { fs.rmSync(tmp, { force: true }); } catch {}
-    throw err;
+      try {
+        await pipeline(Readable.fromWeb(res.body), counter, fs.createWriteStream(tmp));
+        fs.renameSync(tmp, dest);
+        return;
+      } catch (err) {
+        try { fs.rmSync(tmp, { force: true }); } catch {}
+        throw err;
+      }
+    } catch (err) {
+      lastErr = err;
+      if (attempt < retries - 1) await new Promise((r) => setTimeout(r, 500 * (attempt + 1)));
+    }
   }
+  throw new Error(`No se pudo descargar ${path.basename(dest)}: ${lastErr.message}`);
 }
 
 /** SHA-1 de un archivo, en hex minúsculas. */
@@ -57,4 +67,30 @@ function compareVersions(a, b) {
   return 0;
 }
 
-module.exports = { downloadFile, sha1File, compareVersions };
+/** Ejecuta `worker` sobre `items` con como máximo `limit` tareas en paralelo. */
+async function mapLimit(items, limit, worker) {
+  const queue = [...items.entries()];
+  const runners = Array.from({ length: Math.min(limit, queue.length) }, async () => {
+    while (queue.length) {
+      const [index, item] = queue.shift();
+      await worker(item, index);
+    }
+  });
+  await Promise.all(runners);
+}
+
+/**
+ * Une root + una ruta relativa del manifest, garantizando que el resultado
+ * quede DENTRO de root (evita rutas maliciosas tipo "../../Windows").
+ */
+function safeJoin(root, relative) {
+  const clean = String(relative).replace(/^\.\/+/, '').replace(/\\/g, '/');
+  const full = path.resolve(root, clean);
+  const rootResolved = path.resolve(root);
+  if (full !== rootResolved && !full.startsWith(rootResolved + path.sep)) {
+    throw new Error(`Ruta no permitida en el manifest: ${relative}`);
+  }
+  return full;
+}
+
+module.exports = { downloadFile, sha1File, compareVersions, mapLimit, safeJoin };

@@ -1,7 +1,7 @@
 {
-  "name": "mi-launcher",
-  "productName": "Mi Launcher",
-  "version": "1.0.0",
+  "name": "pachi-mc-launcher",
+  "productName": "Pachi MC Launcher",
+  "version": "1.1.0",
   "description": "Launcher de Minecraft con instalación automática de mods y actualización remota",
   "main": "src/main.js",
   "author": "achirinosparedes",
@@ -11,8 +11,8 @@
     "dist": "electron-builder --win"
   },
   "build": {
-    "appId": "com.milauncher.app",
-    "productName": "Mi Launcher",
+    "appId": "com.pachimc.launcher",
+    "productName": "Pachi MC Launcher",
     "directories": {
       "output": "dist"
     },
@@ -28,9 +28,17 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true
-    }
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Alonso-20",
+        "repo": "pachi-mc-launcher"
+      }
+    ]
   },
   "dependencies": {
+    "electron-updater": "^6.8.9",
     "extract-zip": "^2.0.1",
     "minecraft-launcher-core": "^3.18.2",
     "msmc": "^4.1.0",

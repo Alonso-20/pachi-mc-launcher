@@ -61,7 +61,11 @@ async function ensureJava(javaRoot, mcVersion, onStatus) {
   const pkg = assets[0].binary.package;
 
   const zipPath = path.join(javaRoot, `temurin-${major}.zip`);
-  await downloadFile(pkg.link, zipPath, (pct) => {
+  const totalBytes = pkg.size || 0;
+  let received = 0;
+  await downloadFile(pkg.link, zipPath, (bytes) => {
+    received += bytes;
+    const pct = totalBytes ? Math.min(100, Math.round((received / totalBytes) * 100)) : null;
     onStatus(`Descargando Java ${major}${pct != null ? ` (${pct}%)` : ''}`, pct);
   });
 

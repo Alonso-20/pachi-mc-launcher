@@ -12,8 +12,9 @@ async function fetchManifest(url) {
     const res = await fetch(bust, { signal: controller.signal, cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const manifest = await res.json();
-    if (!manifest.game || !manifest.game.mcVersion) {
-      throw new Error('El manifest no tiene el campo game.mcVersion');
+    const hasPack = manifest.ftbPack && manifest.ftbPack.id;
+    if (!hasPack && !(manifest.game && manifest.game.mcVersion)) {
+      throw new Error('El manifest necesita "ftbPack" o "game.mcVersion"');
     }
     return manifest;
   } finally {
@@ -39,10 +40,12 @@ function checkAccess(manifest, launcherVersion, username) {
   }
 
   if (l.minVersion && compareVersions(launcherVersion, l.minVersion) < 0) {
+    // No se muestra ninguna URL: el launcher se actualiza solo al reiniciarse.
     return {
       ok: false,
-      reason: `Tu launcher (v${launcherVersion}) quedó obsoleto. Descarga la versión ${l.minVersion} o superior.` +
-        (l.updateUrl ? `\nDescarga: ${l.updateUrl}` : ''),
+      reason:
+        `Tu launcher (v${launcherVersion}) quedó obsoleto y necesita la versión ${l.minVersion} o superior.\n` +
+        'Cierra el launcher y vuelve a abrirlo para que se actualice. Si sigue igual, pide el instalador al administrador.',
       updateUrl: l.updateUrl || null,
     };
   }

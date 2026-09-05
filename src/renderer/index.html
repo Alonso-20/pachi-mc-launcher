@@ -3,19 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'" />
-  <title>Mi Launcher</title>
+  <title>Pachi MC Launcher</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="app">
     <header>
-      <div class="logo">⛏️ <span id="title">Mi Launcher</span></div>
+      <div class="logo">⛏️ <span id="title">Pachi MC Launcher</span></div>
       <span class="version" id="launcher-version"></span>
     </header>
 
     <div id="banner" class="banner hidden">
       <p id="banner-text"></p>
-      <button id="banner-link" class="link-btn hidden">Descargar actualización</button>
+    </div>
+
+    <div id="update-bar" class="update-bar hidden">
+      <span id="update-text"></span>
+      <button id="update-install" class="btn-update hidden">Reiniciar e instalar</button>
     </div>
 
     <main>
@@ -23,6 +27,7 @@
         <h2 id="server-name">Cargando servidor...</h2>
         <p class="motd" id="motd"></p>
         <div class="chips">
+          <span class="chip hidden" id="chip-pack"></span>
           <span class="chip hidden" id="chip-version"></span>
           <span class="chip hidden" id="chip-loader"></span>
           <span class="chip hidden" id="chip-mods"></span>
@@ -31,23 +36,33 @@
       </section>
 
       <section class="card" id="play-card">
-        <div class="row">
+        <div class="account hidden" id="account-box">
+          <div class="avatar" id="account-avatar"></div>
+          <div class="account-info">
+            <span class="account-name" id="account-name"></span>
+            <span class="account-status">✓ Sesión iniciada con Microsoft</span>
+          </div>
+          <button id="logout" class="btn-link">Cerrar sesión</button>
+        </div>
+
+        <div class="row" id="username-row">
           <label for="username">Nombre de jugador</label>
           <input id="username" type="text" maxlength="16" placeholder="Steve" autocomplete="off" spellcheck="false" />
         </div>
         <div class="row">
           <label for="ram">Memoria RAM</label>
           <select id="ram">
-            <option value="2">2 GB</option>
-            <option value="4" selected>4 GB</option>
-            <option value="6">6 GB</option>
-            <option value="8">8 GB</option>
+            <option value="4">4 GB</option>
+            <option value="6">6 GB (mínimo para modpacks grandes)</option>
+            <option value="8" selected>8 GB (recomendado)</option>
+            <option value="10">10 GB</option>
             <option value="12">12 GB</option>
+            <option value="16">16 GB</option>
           </select>
         </div>
         <div class="buttons">
           <button id="play-offline" class="btn primary" disabled>▶ Jugar</button>
-          <button id="play-ms" class="btn secondary" disabled>Jugar con cuenta Microsoft</button>
+          <button id="login-ms" class="btn secondary" disabled>Iniciar sesión con Microsoft</button>
         </div>
       </section>
 
