@@ -27,7 +27,8 @@
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "createDesktopShortcut": true
+      "createDesktopShortcut": true,
+      "artifactName": "${name}-Setup-${version}.${ext}"
     },
     "publish": [
       {

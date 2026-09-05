@@ -213,9 +213,13 @@ window.launcher.onUpdate((u) => {
       showUpdate(`Actualización v${u.version} lista. Se instalará al cerrar el launcher.`, true);
       break;
     default:
-      // 'checking', 'none' y 'error' no se le enseñan al jugador: si no hay
-      // internet o aún no hay releases, el launcher funciona igual.
-      updateBar.classList.add('hidden');
+      // 'checking', 'none' y 'error' no se le enseñan al jugador... salvo que
+      // esté bloqueado por versión: ahí quedaría sin salida ni explicación.
+      if (blocked && (u.state === 'none' || u.state === 'error')) {
+        showUpdate('No se pudo descargar la actualización automáticamente. Pide el instalador al administrador.', false);
+      } else {
+        updateBar.classList.add('hidden');
+      }
   }
 });
 
