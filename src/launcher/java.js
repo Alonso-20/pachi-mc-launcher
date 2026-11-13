@@ -20,7 +20,8 @@ async function getRequiredJavaMajor(mcVersion) {
 
   // Heurística de respaldo
   const m = String(mcVersion).match(/^1\.(\d+)(?:\.(\d+))?/);
-  if (!m) return 21;
+  // Numeración nueva (26.x en adelante) pide Java 25
+  if (!m) return /^\d{2}\./.test(String(mcVersion)) ? 25 : 21;
   const minor = parseInt(m[1], 10);
   const patch = parseInt(m[2] || '0', 10);
   if (minor >= 21 || (minor === 20 && patch >= 5)) return 21;
