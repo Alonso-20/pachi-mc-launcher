@@ -67,6 +67,20 @@ si es de los que lo requieren.
 
 ---
 
+## Packs de Modrinth (Prominence II)
+
+```bash
+node tools/mr-pack.js prominence-2-fabric <versionId> 1K7XoPeL
+```
+
+Genera `pack-prominence-2-fabric.json` con el `.mrpack` como `packZip`, sus mods
+y los mods extra que pases como ids de versión (`1K7XoPeL` = Simple Voice Chat).
+Sin `versionId` usa la última. Copia su contenido sobre la entrada
+`"id": "prominence"` (conserva `id`, `server` y `message`). Va en `additive`
+porque el pack trae jars dentro de `overrides/mods` que `strict` borraría.
+
+---
+
 ## Control de acceso (`launcher`)
 
 | Campo | Efecto |

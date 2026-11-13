@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const extract = require('extract-zip');
 const { downloadFile, sha1File, mapLimit, safeJoin } = require('./util');
 
 const STATE_FILE = '.launcher-state.json';
@@ -141,12 +142,16 @@ async function syncFiles(files, root, { syncMode = 'strict', onStatus = () => {}
   return { downloaded: pending.length, removed };
 }
 
-/** Convierte la lista simple `mods` del manifest al formato del sincronizador. */
+/**
+ * Convierte la lista simple `mods` del manifest al formato del sincronizador.
+ * Por defecto van a mods/, pero una entrada puede fijar su destino con `path`
+ * (los packs de CurseForge traen resourcepacks en la misma lista).
+ */
 function modsToFiles(mods = []) {
   return mods
     .filter((m) => m && m.filename && m.url)
     .map((m) => ({
-      path: `mods/${m.filename}`,
+      path: m.path || `mods/${m.filename}`,
       url: m.url,
       mirrors: m.mirrors || [],
       sha1: (m.sha1 || '').toLowerCase(),
@@ -154,4 +159,51 @@ function modsToFiles(mods = []) {
     }));
 }
 
-module.exports = { syncFiles, modsToFiles };
+/**
+ * Instala el zip oficial de un modpack de CurseForge: lo descarga una sola vez
+ * y vuelca su carpeta `overrides/` (configs, kubejs, resourcepacks propios del
+ * pack) en la raiz. Queda marcado en disco para no repetirlo cada arranque.
+ */
+async function installPackZip(packZip, root, onStatus) {
+  if (!packZip || !packZip.url) return false;
+
+  const marker = path.join(root, '.packzip.json');
+  const id = packZip.sha1 || packZip.url;
+  try {
+    if (JSON.parse(fs.readFileSync(marker, 'utf8')).id === id) return false;
+  } catch {}
+
+  fs.mkdirSync(root, { recursive: true });
+  const zip = path.join(root, 'packzip.tmp.zip');
+  const total = packZip.size || 0;
+  let got = 0;
+
+  onStatus('Descargando el modpack...', 0);
+  await downloadFile(packZip.url, zip, (bytes) => {
+    got += bytes;
+    onStatus(
+      `Descargando el modpack... ${(got / 1024 / 1024).toFixed(0)}${total ? '/' + (total / 1024 / 1024).toFixed(0) : ''} MB`,
+      total ? Math.min(99, Math.round((got / total) * 100)) : null
+    );
+  });
+
+  if (packZip.sha1 && (await sha1File(zip)) !== packZip.sha1.toLowerCase()) {
+    fs.rmSync(zip, { force: true });
+    throw new Error('El modpack se descargo corrupto. Vuelve a intentarlo.');
+  }
+
+  onStatus('Instalando archivos del modpack (tarda un poco)...', null);
+  const tmp = path.join(root, '.packzip-tmp');
+  fs.rmSync(tmp, { recursive: true, force: true });
+  await extract(zip, { dir: tmp });
+
+  const overrides = path.join(tmp, 'overrides');
+  if (fs.existsSync(overrides)) fs.cpSync(overrides, root, { recursive: true });
+
+  fs.rmSync(tmp, { recursive: true, force: true });
+  fs.rmSync(zip, { force: true });
+  fs.writeFileSync(marker, JSON.stringify({ id }));
+  return true;
+}
+
+module.exports = { syncFiles, modsToFiles, installPackZip };
