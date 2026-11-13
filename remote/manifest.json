@@ -1,9 +1,9 @@
 {
   "launcher": {
     "enabled": true,
-    "minVersion": "1.2.0",
+    "minVersion": "1.3.0",
     "updateUrl": "https://github.com/Alonso-20/pachi-mc-launcher/releases/latest",
-    "message": "FTB Skies 2: Aero — el launcher instala el modpack completo automáticamente.",
+    "message": "El launcher instala el modpack completo automáticamente.",
     "allowOffline": true,
     "blockedUsers": [],
     "allowedUsers": null,
