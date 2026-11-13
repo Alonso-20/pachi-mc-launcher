@@ -3842,6 +3842,24 @@
           "path": "resourcepacks/Frosty-Deathchill.zip"
         },
         {
+          "filename": "ftb-library-fabric-2001.2.13.jar",
+          "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-library-fabric/2001.2.13/ftb-library-fabric-2001.2.13.jar",
+          "sha1": "f8d8cf106b34bcc890ef7835ea73e72899df9b8d",
+          "size": 769914
+        },
+        {
+          "filename": "ftb-quests-fabric-2001.4.22.jar",
+          "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-quests-fabric/2001.4.22/ftb-quests-fabric-2001.4.22.jar",
+          "sha1": "71b6dd3667a082b01db3db6e254312e752628ffc",
+          "size": 1263242
+        },
+        {
+          "filename": "ftb-teams-fabric-2001.3.2.jar",
+          "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-teams-fabric/2001.3.2/ftb-teams-fabric-2001.3.2.jar",
+          "sha1": "fcfc1afb1aef5a7878f56a09868b9b6a74bf841b",
+          "size": 248853
+        },
+        {
           "filename": "Fwaystones-PT-BR-v1.zip",
           "url": "https://cdn.modrinth.com/data/JMOso179/versions/llUWp9pW/Fwaystones-PT-BR-v1.zip",
           "sha1": "dae001064902aadba22f50d49475d5dc3e27be75",

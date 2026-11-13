@@ -79,6 +79,11 @@ Sin `versionId` usa la última. Copia su contenido sobre la entrada
 `"id": "prominence"` (conserva `id`, `server` y `message`). Va en `additive`
 porque el pack trae jars dentro de `overrides/mods` que `strict` borraría.
 
+**Ojo:** la versión de Modrinth no trae FTB Quests (sin él no hay misiones ni
+libro). Al regenerar, vuelve a añadir a mano en `mods` las entradas
+`ftb-library-fabric`, `ftb-teams-fabric` y `ftb-quests-fabric` (vienen de
+`maven.ftb.dev`, no de Modrinth); el servidor debe tener las mismas versiones.
+
 ---
 
 ## Control de acceso (`launcher`)
